@@ -9,6 +9,7 @@ import '../../../styles/orders.css'
 import { Link, useNavigate } from "react-router-dom";
 import DashboardSidebar from "../../../components/DashboardSidebar.jsx";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Orders = () => {
     const [openDropdowns, setOpenDropdowns] = useState({});

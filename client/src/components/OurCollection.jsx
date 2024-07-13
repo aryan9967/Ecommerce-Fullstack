@@ -98,7 +98,7 @@ const OurCollection = () => {
                 {ourCollection?.map((oc) => (
                     <>
                         <SwiperSlide>
-                            <div className="card" onClick={() => toProductDetails(bs.pid)}>
+                            <div className="card" onClick={() => toProductDetails(oc.pid)}>
                                 <div className="crdimg">
                                     <img src={oc.main_image} alt="" />
                                 </div>

@@ -1,0 +1,61 @@
+.dashboard_container .dashboard_sidebar {
+    width: 20vw;
+    height: 100vh;
+    border-top: 1px solid rgb(235, 214, 250);
+    border-right: 1px solid rgb(235, 214, 250);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: sticky;
+    top: 0;
+    /* Stick to the top of the viewport */
+
+    /* Hides the scrollbar for Webkit browsers (e.g., Chrome, Safari) */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_content {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_btn {
+    width: 20vw;
+    display: flex;
+    border: 1px solid rgb(235, 214, 250);
+    border-top: none;
+    border-right: none;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_text {
+    width: 20vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    padding: 0 1vw;
+    background-color: #faf7ff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_text:hover {
+    background-color: #f7f1ff;
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_text h4 {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: #9b44de;
+    letter-spacing: 0.1vh;
+    text-transform: uppercase;
+    margin-bottom: 0 !important;
+}

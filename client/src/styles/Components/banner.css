@@ -1,0 +1,25 @@
+.banner {
+    width: 100%;
+    height: 65vh;
+}
+
+.banner .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .swiper-slide .banner_img {
+    display: block;
+    width: 100%;
+    height: 65vh;
+}
+
+.banner .swiper-pagination-bullet {
+    cursor: pointer !important;
+}

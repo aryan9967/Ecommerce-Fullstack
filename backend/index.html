@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <input type="text" id="product_name" placeholder="product_name">
+    <input type="text" id="description" placeholder="description">
+    <input type="text" id="category" placeholder="category">
+
+    <input type="text" id="color1" class="color" placeholder="color1">
+    <button onclick="create_color('color1')" id="color1_btn">create color</button>
+    <input type="text" id="color2" class="color" placeholder="color2">
+    <button onclick="create_color('color2')" id="color2_btn">create color</button>
+
+    <input type="file" name="red" id="file1" multiple>
+    <input type="file" name="blue" id="file2" multiple>
+    <input type="file" name="main_image" id="file3">
+    <button onclick="submit_colors()">submit</button>
+
+    <div class="qauntity_form" id="qauntity_form"
+        style="display: none; background: #ffffff; border: 1px solid black; position: absolute; top: 200px; left: 200px; z-index: 20; width: 370px;">
+
+    </div>
+
+</head>
+
+<body>
+    <script>
+        function create_color(id) {
+            console.log("create color", id)
+
+            document.getElementById("qauntity_form").innerHTML = `
+            <label for="S">S</label><input type="text" id="S" placeholder="qauntity"><input type="text" id="price_S" placeholder="price">
+            <label for="M">M</label><input type="text" id="M" placeholder="qauntity"><input type="text" id="price_M" placeholder="price">
+            <label for="L">L</label><input type="text" id="L" placeholder="qauntity"><input type="text" id="price_L" placeholder="price">
+           <label for="XL">XL</label><input type="text" id="XL" placeholder="qauntity"><input type="text" id="price_XL" placeholder="price">
+           <button onclick="add_qauntity('${id}')">Confirm</button>`
+            document.getElementById("qauntity_form").style.display = "block"
+        }
+        function add_qauntity(id) {
+            console.log("add qauntity", id)
+            let color = document.getElementById(id).value
+            let S = Number(document.getElementById('S').value)
+            let M = Number(document.getElementById('M').value)
+            let L = Number(document.getElementById('L').value)
+            let XL = Number(document.getElementById('XL').value)
+            let price_S = Number(document.getElementById('price_S').value)
+            let price_M = Number(document.getElementById('price_M').value)
+            let price_L = Number(document.getElementById('price_L').value)
+            let price_XL = Number(document.getElementById('price_XL').value)
+            const data = {
+                color_name: color,
+                color_code: "#0000",
+                sizes: [
+                    { "size": "S", "price": price_S, "stock": S },
+                    { "size": "M", "price": price_M, "stock": M },
+                    { "size": "L", "price": price_L, "stock": L },
+                    { "size": "XL", "price": price_XL, "stock": XL }
+                ]
+            }
+            console.log("data for each color", data)
+            formdata.append(`${color}`, data)
+            document.getElementById("qauntity_form").style.display = "none"
+        }
+        const formdata = new FormData()
+        const color_input = document.getElementsByClassName("color")
+        const color_arr = []
+
+        async function submit_colors() {
+
+            for (var i = 0; i < color_input.length; i++) {
+                color_arr.push(color_input[i].value)
+            }
+
+            Array.from(document.getElementById('file1').files).forEach(file => {
+                //change color
+                formdata.append('gray', file);
+            });
+            Array.from(document.getElementById('file2').files).forEach(file => {
+                //change color
+                formdata.append('black', file);
+            });
+
+            formdata.append('main_image', document.getElementById('file3').files[0]);
+
+            console.log(color_arr)
+            formdata.append('colors', JSON.stringify(color_arr))
+            formdata.append('seller_id', "aryan")
+            formdata.append('seller_name', "aryan")
+            formdata.append('product_name', "tshirt2")
+            formdata.append('description', "Introducing our \"Neon Indigo Fusion\" T-shirt, a perfect blend of style and innovation! Crafted from premium, soft cotton, this T-shirt features a vibrant neon indigo design that captures the essence of futuristic fashion. Whether you're hitting the streets or lounging at home, the bold, eye-catching print ensures you stand out in any crowd. The comfortable fit and durable fabric make it ideal for everyday wear. Embrace the future of fashion with our exclusive \"Neon Indigo Fusion\" T-shirt – where art meets apparel.")
+            formdata.append('category', "polo tshirt")
+            formdata.append('display_price', "399")
+
+            const data = {
+                //change color
+                color_name: 'gray',
+                color_code: "#808080",
+                sizes: [
+                    { "size": "S", "price": 399, "stock": 100 },
+                    { "size": "M", "price": 399, "stock": 100 },
+                    { "size": "L", "price": 499, "stock": 100 },
+                    { "size": "XL", "price": 599, "stock": 100 }
+                ]
+            }
+            const data1 = {
+                //change color
+                color_name: 'black',
+                color_code: "#000000",
+                sizes: [
+                    { "size": "S", "price": 399, "stock": 100 },
+                    { "size": "M", "price": 399, "stock": 100 },
+                    { "size": "L", "price": 499, "stock": 100 },
+                    { "size": "XL", "price": 599, "stock": 100 }
+                ]
+            }
+
+            //change color
+            const color_code = [{ color_name: "gray", color_code: "#808080" }, { color_name: "black", color_code: "#000000" }]
+            //change color
+            formdata.append('gray', JSON.stringify(data))
+            //change color
+            formdata.append('black', JSON.stringify(data1))
+            formdata.append('color_code', JSON.stringify(color_code))
+
+            try {
+                const options = {
+                    method: 'POST',
+                    headers: {
+                        'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFyeWFuIn0.2pc99p7IzrDQFdXRrR6rm_A4XABVMyewqLbgLrwL_0c'
+                    },
+                    body: formdata
+                }
+                const response = await fetch("http://localhost:8080/api/v1/seller/create_product", options)
+                console.log(response)
+            }
+            catch (err) {
+                console.error(err)
+            }
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+.dashboard_container {
+    width: 100vw;
+    display: flex;
+    /* overflow-x: hidden; */
+}
+
+.dashboard_container .dashboard_content {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_container .new_product {
+    margin: 0.8vw 0 0 2vw;
+    height: 6vh;
+    display: flex;
+}
+
+.dashboard_container .new_product .new_product_btn {
+    min-width: 15vw;
+    height: 6vh;
+    padding: 1vh;
+    border: 1px solid rgba(34, 139, 34, 0.75);
+    outline: none;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: rgba(34, 139, 34, 0.75);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.dashboard_container .new_product .new_product_btn:hover {
+    border: 1px solid rgb(200, 200, 200);
+    color: #fff;
+    background-color: rgba(34, 139, 34, 0.75);
+}
+
+.dashboard_container .product_container {
+    margin-left: 1vw;
+    width: calc(79vw);
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_container .product_container .product_nav1 {
+    margin-top: 1vh;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+.dashboard_container .product_container .product_nav1 .product_text {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.dashboard_container .product_container .product_nav1 .product_sort {
+    width: 14vw;
+    height: 7vh;
+    border: 1px solid rgb(104, 104, 104);
+    outline: none;
+    background-color: white;
+    margin-right: 1vw;
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding-left: 0.5vh;
+}
+
+
+.dashboard_container .product_container .product_nav1 option {
+    background-color: white;
+    font-size: 0.8rem;
+    /* letter-spacing: -1vh; */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.dashboard_container .product_container .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1vw 1vw 1vw 0;
+    /* Ensure exactly 5 cards per row */
+    /* Adjust min-width as needed */
+    gap: 1vw;
+    margin-top: 1vh;
+    z-index: -1;
+}
+
+.dashboard_container .product_container .card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+}
+
+.dashboard_container .product_container .crdimg {
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    /* 4:3 Aspect Ratio */
+    position: relative;
+    z-index: 1;
+}
+
+.dashboard_container .product_container .crdimg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.dashboard_container .product_container .crd_content {
+    padding: 0.5vh 0.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.dashboard_container .product_container .crd_name {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.dashboard_container .product_container .crd_rating {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 0.7vh 0;
+}
+
+.dashboard_container .product_container .crd_rating .star {
+    font-size: 1.05rem;
+    color: #FFD700;
+    /* background-color: #FFD700; */
+}
+
+.dashboard_container .product_container .crd_price {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0.1rem;
+}

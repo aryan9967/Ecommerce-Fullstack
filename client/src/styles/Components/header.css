@@ -1,0 +1,228 @@
+.offer_marquee {
+    width: 100vw;
+    height: 4vh;
+    display: none;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.offer_marquee h5 {
+    margin-bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vh !important;
+    color: white;
+}
+
+/* SlidingText.css */
+.marquee {
+    width: 100vw;
+    height: 4vh;
+    /* display: none !important; */
+    background-color: rgb(138, 51, 208);
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.sliding-text {
+    margin-bottom: 0 !important;
+    display: inline-block;
+    position: absolute;
+    animation: slide-right 10s linear infinite;
+    font-size: 1.7vh !important;
+    color: rgb(235, 214, 250);
+    /* Adjust the text color as needed */
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.navbar1 {
+    width: 100vw;
+    height: 10vh;
+    padding: 0 1vw 0 0 !important;
+    background-color: rgba(171, 79, 247, 1);
+    border-bottom: 0.5px solid rgb(183, 100, 250);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 10;
+}
+
+.navbar1 .logo {
+    /* margin-left: 2vw; */
+    width: 25%;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo img {
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 10vh;
+    object-fit: cover;
+}
+
+.searchbar {
+    width: 35vw;
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar .search {
+    width: 30vw;
+    height: 5.5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar .search .srch1 {
+    width: 30vw;
+    height: 4.5vh;
+    padding: 1vw;
+    font-size: 2.4vh;
+    border: 1px solid rgb(250, 240, 240);
+    outline: none;
+    background: none;
+}
+
+.searchbar .srch1btn {
+    width: 5vw;
+    height: 4.5vh;
+    border: 1px solid rgb(250, 240, 240);
+    border-left: none;
+    outline: none;
+    background: none;
+}
+
+.material-symbols-outlined {
+    line-height: normal;
+}
+
+.right_nav {
+    /* width: 22vw; */
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 0 2vw !important;
+    padding: 0 2vw 0 4vw !important;
+    gap: 1.7vw;
+    /* margin: 0 !important; */
+}
+
+.right_nav li {
+    margin-left: 0.5vw;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    list-style: none;
+    cursor: pointer;
+    float: left;
+    justify-content: space-between;
+}
+
+.right_nav .login_link {
+    text-decoration: none;
+    color: rgb(228, 200, 250);
+}
+
+.right_nav .login_link:hover {
+    color: rgb(235, 220, 247);
+}
+
+.right_nav .profile_icon_container {
+    width: 5vw;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.right_nav .profile_icon_container .line {
+    width: 5vw;
+    height: 1vh;
+    background-color: #fff;
+    flex-direction: row-reverse;
+}
+
+.right_nav .user_icon {
+    font-size: 1.3rem;
+    color: rgb(228, 200, 250);
+}
+
+.right_nav .user_icon:hover {
+    color: rgb(235, 220, 247);
+}
+
+.right_nav .wishlist_icon {
+    font-size: 1.3rem;
+    color: rgb(228, 200, 250);
+}
+
+.right_nav .wishlist_icon:hover {
+    color: rgb(235, 220, 247);
+}
+
+.right_nav .cart_icon {
+    font-size: 1.2rem;
+    color: rgb(228, 200, 250);
+}
+
+.right_nav .cart_icon:hover {
+    color: rgb(235, 220, 247);
+}
+
+
+
+
+.lato {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}

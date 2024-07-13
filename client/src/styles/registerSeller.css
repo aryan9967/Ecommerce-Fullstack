@@ -1,0 +1,346 @@
+.regiseller_container {
+    width: 100vw;
+    height: 86vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f5f5f5;
+}
+
+.regiseller_container .register_content {
+    width: 95vw;
+    height: 80vh;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.regiseller_container .register_content .regis_image {
+    width: 40vw;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.regiseller_container .register_content .regis_image img {
+    width: 40vw;
+    height: 80vh;
+    object-fit: cover;
+}
+
+.regiseller_container .register_content .regis_form {
+    width: 55vw;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2vw;
+    /* align-items: center; */
+    background-color: #e1e1ff;
+}
+
+.regiseller_container .reg_title {
+    width: 55vw;
+    padding: 0 2vw;
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+}
+
+.regiseller_container .reg_title h2 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 2.6rem !important;
+    font-weight: 400;
+    font-style: normal;
+    color: #7070f3;
+    margin-bottom: 0 !important;
+}
+
+.regiseller_container .reg_form {
+    width: 55vw;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+.regiseller_container .reg_form .display_name {
+    width: 52vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.regiseller_container .inpbar {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+}
+
+.regiseller_container .inpbar h4 {
+    font-size: 1.8vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    color: #7070f3;
+    font-style: normal;
+    letter-spacing: 0.2vh;
+}
+
+.regiseller_container .inpbar input {
+    width: 25vw;
+    height: 6vh;
+    padding: 1vh;
+    font-size: 2vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    border: 1px solid #7070f3;
+    outline: 1px;
+    background-color: #e1e1ff;
+}
+
+.regiseller_container .otpbar {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    display: none;
+    margin-bottom: 2vh;
+}
+
+.regiseller_container .otpbar h4 {
+    font-size: 2.3vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    color: #7070f3;
+    letter-spacing: 0.2vh;
+}
+
+.regiseller_container .otpbar input {
+    width: 25vw;
+    height: 6vh;
+    padding: 1vh;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    border: 1px solid #7070f3;
+    outline: 1px;
+    background-color: #e1e1ff;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.regiseller_container .reg_btn {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: white;
+    background-color: #6969f2;
+    cursor: pointer;
+}
+
+.regiseller_container .reg_btn:hover {
+    background-color: #7474ea;
+}
+
+
+.regiseller_container .reg_text {
+    margin-top: 1.5vh;
+    margin-bottom: 3vh;
+    font-size: 2.45vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    /* text-transform: uppercase; */
+}
+
+.reg_text .link_reg {
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+}
+
+.regiseller_container .reg_text .link_reg:hover {
+    text-decoration: underline;
+}
+
+.regiseller_container .signin_phone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5vh;
+    width: 25vw !important;
+    height: 7vh;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    /* background-color: rgb(233, 0, 0, 0.75); */
+}
+
+.regiseller_container .signin_phone .phone_text {
+    width: 22vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 2vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(0, 123, 255, 0.75);
+    cursor: pointer;
+}
+
+.regiseller_container .signin_phone .phone_icon_btn {
+    width: 3vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(0, 123, 255, 0.6);
+    cursor: pointer;
+}
+
+.regiseller_container .signin_phone:hover {
+    .phone_text {
+        background-color: rgba(0, 123, 255, 0.65);
+    }
+
+    .phone_icon_btn {
+        background-color: rgba(0, 123, 255, 0.5);
+    }
+}
+
+
+.regiseller_container .signin_seller {
+    display: flex;
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    /* background-color: rgb(233, 0, 0, 0.75); */
+}
+
+.regiseller_container .signin_seller .seller_text {
+    width: 22vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 2vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(157, 0, 157, 0.75);
+    cursor: pointer;
+}
+
+.regiseller_container .signin_seller .seller_icon_btn {
+    width: 3vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(157, 0, 157, 0.6);
+    cursor: pointer;
+}
+
+.regiseller_container .signin_seller:hover {
+    .seller_text {
+        background-color: rgba(157, 0, 157, 0.65);
+    }
+
+    .seller_icon_btn {
+        background-color: rgba(157, 0, 157, 0.5);
+    }
+}
+
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.lato {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+.regiseller_container .divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.regiseller_container .line {
+    width: 8.5vw;
+    flex-grow: 1;
+    height: 1px;
+    background-color: #2f2fe7;
+    margin: 0 6px;
+    opacity: 0.5;
+}
+
+.regiseller_container .sellerline {
+    width: 8vw;
+    flex-grow: 1;
+    height: 1px;
+    background-color: #4747d4;
+    margin: 0 6px;
+    opacity: 0.5;
+}
+
+.regiseller_container .divider-text {
+    font-size: 16px;
+    color: #4747d4;
+}

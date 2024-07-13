@@ -1,0 +1,319 @@
+.search_container {
+    width: 100vw;
+    display: flex;
+    /* overflow-x: hidden; */
+}
+
+.search_container .filter_container {
+    width: 20vw;
+    height: 100vh;
+    border-right: 1px solid rgb(240, 240, 240);
+    border-top: 1px solid rgb(240, 240, 240);
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: sticky;
+    top: 0;
+    /* Stick to the top of the viewport */
+
+    /* Hides the scrollbar for Webkit browsers (e.g., Chrome, Safari) */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.search_container .filter_container .filter_text {
+    width: 20vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    padding: 0 1vw;
+    border-bottom: 1px solid rgb(240, 240, 240);
+}
+
+.search_container .filter_text h3 {
+    font-size: 1.7rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    /* letter-spacing: 0.1vh; */
+    margin-bottom: 0 !important;
+}
+
+.search_container .filter_container .filter_content {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.search_container .filter_container .filter_dropdown {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(240, 240, 240);
+    padding: 0;
+}
+
+.search_container .filter_container .dropdown_btn {
+    width: 20vw;
+    display: flex;
+}
+
+.search_container .filter_container .dropdown_text {
+    width: 17vw;
+    height: 7.5vh;
+    display: flex;
+    align-items: center;
+    padding: 0 1vw;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.search_container .filter_container .dropdown_text h4 {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.1vh;
+    text-transform: uppercase;
+    margin-bottom: 0 !important;
+}
+
+.search_container .filter_container .dropdown_arrow {
+    width: 3vw;
+    height: 7.5vh;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.search_container .filter_container .dropdown_content {
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 1.5vh 0;
+}
+
+.search_container .filter_container .dropdown_option {
+    width: 20vw;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    padding: 0 1vw;
+    margin-bottom: 1vh;
+}
+
+.search_container .filter_container input {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.search_container .filter_container .option_text {
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    padding-top: 0.3vh;
+}
+
+.search_container .filter_container .option_text label {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    cursor: pointer;
+}
+
+.search_container .filter_container .option_text label:hover {
+    text-decoration: underline;
+}
+
+
+.custom-slider {
+    width: calc(100% - 10px) !important;
+    margin: 20px auto !important;
+    height: 6px !important;
+    background: #fff !important;
+}
+
+.custom-thumb {
+    height: 10px !important;
+    width: 10px !important;
+    background-color: #000 !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+}
+
+.custom-track {
+    background: #555 !important;
+    height: 6px !important;
+}
+
+.price-inputs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.price-inputs input {
+    width: 45%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.search_container .result_container {
+    width: calc(100% - 20vw);
+    display: flex;
+    flex-direction: column;
+}
+
+.result_container .result_nav1 {
+    margin-top: 1vh;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1vw;
+}
+
+.result_container .result_nav1 .result_text {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.result_container .result_nav1 .result_sort {
+    width: 14vw;
+    height: 7vh;
+    border: 1px solid rgb(104, 104, 104);
+    outline: none;
+    background-color: white;
+    margin-right: 1vw;
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding-left: 0.5vh;
+}
+
+
+.result_container .result_nav1 option {
+    background-color: white;
+    font-size: 0.8rem;
+    /* letter-spacing: -1vh; */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.result_container .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    padding: 1vw;
+    /* Ensure exactly 5 cards per row */
+    /* Adjust min-width as needed */
+    gap: 1vw;
+    margin-top: 2vh;
+    z-index: -1;
+}
+
+.result_container .card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+}
+
+.result_container .crdimg {
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+    /* 4:3 Aspect Ratio */
+    position: relative;
+    z-index: 1;
+}
+
+.result_container .crdimg img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.result_container .crd_content {
+    padding: 0.5vh 0.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.result_container .crd_name {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+}
+
+.result_container .crd_rating {
+    display: flex;
+    justify-content: center;
+    margin: 0.1rem 0;
+}
+
+.result_container .material-symbols-outlined {
+    font-size: 1.2rem;
+    color: #FFD700;
+    /* Gold color for stars */
+}
+
+.result_container .crd_price {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 0.1rem;
+}
+
+
+
+.lato {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}

@@ -1,0 +1,86 @@
+.wishlist_container{
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wishlist_item{
+    border-radius: 3px;
+    margin-top: 20px;
+    border: 1px solid rgb(225, 225, 225);
+    width: 50%;
+    height: 160px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+.left{
+    border-radius: 3px;
+    /* border: 1px solid black; */
+    height: 85%;
+    width: 22%;
+
+}
+.left img{
+    border-radius: 3px;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.right{
+    width: 76%;
+    /* border: 1px solid black; */
+    height: 85%;
+    position: relative;
+}
+.line1{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.name{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: #9c46bf;
+}
+.price{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: #ad70c5;
+}
+/* .pid{
+    color: rgb(177, 177, 177);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+} */
+.color{
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    font-weight: 400;
+    /* margin-bottom: 40px; */
+   
+    /* color: #ad70c5; */
+}
+.remove_btn{
+    position: absolute;
+    bottom: 1px;
+}
+.remove_btn button{
+    font-family: 'Roboto Mono', monospace;
+    padding: 7px;
+    background: white;
+    border: 1px solid red;
+    color: red;
+    border-radius: 3px;
+    font-size: 1rem;
+}
+.remove_btn button:hover{
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    transition: 0.3s;
+}

@@ -1,0 +1,347 @@
+.dashboard_container {
+    width: 100vw;
+    display: flex;
+    /* overflow-x: hidden; */
+}
+
+.dashboard_container .dashboard_content {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Profile Order History */
+.dashboard_container .previous_orders {
+    margin: 0 0 0 4vw;
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(230, 230, 230);
+    border-bottom: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    position: sticky;
+    top: 0;
+}
+
+.dashboard_container .previous_orders .order_header {
+    width: 65vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vw;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.dashboard_container .previous_orders .order_header h3 {
+    font-size: 1.65rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.06vh;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .previous_orders .order_header h4 {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .previous_orders .order_cards {
+    width: 65vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_container .previous_orders .order_cards .order_card {
+    width: 65vw;
+    height: 31vh;
+    display: flex;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.dashboard_container .previous_orders .order_cards .order_card .order_img {
+    width: 15vw;
+    height: 31vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.dashboard_container .previous_orders .order_card .order_img img {
+    width: 14.5vw;
+    height: 30vh;
+    object-fit: cover;
+}
+
+.dashboard_container .previous_orders .order_card .order_details {
+    width: 44.4vw;
+    height: 31vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_name {
+    margin-top: 2vh;
+    margin-bottom: 0.6vh;
+    display: flex;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_name h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0vh !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_avail {
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_avail h5 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(1, 163, 1);
+    margin-bottom: 0 !important;
+    /* Your desired text color */
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_rate {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .star {
+    font-size: 1.1rem;
+    color: #FFD700;
+    /* background-color: #FFD700; */
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_size {
+    margin-top: 0.8vh;
+    display: flex;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_size h4 {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_color {
+    margin-top: 0.9vh;
+    display: flex;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_color h4 {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0 !important;
+}
+
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy {
+    margin-top: 1.5vh;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy .quantity_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5vh;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy .quantity_container .qty_tag {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0vh !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy .quantity_container .qty_amount {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0vh !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy .quantity_container .qty_down {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #333;
+    margin-top: 0.5vh !important;
+    margin-bottom: 0vh !important;
+    cursor: pointer;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy .buy_again {
+    width: 9vw;
+    height: 5vh;
+    border: 1px solid black;
+    outline: none;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: #333;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .order_buy .buy_again:hover {
+    border: 1px solid rgb(214, 214, 214);
+    color: #fff;
+    background-color: rgb(49, 49, 49);
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .vertical-divider {
+    width: 1px;
+    /* Thin line */
+    height: 80%;
+    /* Full height */
+    background-color: #ccc;
+    /* Color of the divider */
+    margin: 0 10px;
+    /* Optional: space around the divider */
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .remove_text {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+    /* Bootstrap blue shade or choose any blue shade you prefer */
+    cursor: pointer;
+    /* Makes it look clickable */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .remove_text:hover {
+    color: #0056b3;
+    /* Darker blue for hover effect */
+    text-decoration: underline;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .cancel_order {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+    /* Bootstrap blue shade or choose any blue shade you prefer */
+    cursor: pointer;
+    /* Makes it look clickable */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .cancel_order:hover {
+    color: #0056b3;
+    /* Darker blue for hover effect */
+    text-decoration: underline;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .see_more {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+    /* Bootstrap blue shade or choose any blue shade you prefer */
+    cursor: pointer;
+    /* Makes it look clickable */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .previous_orders .order_card .order_details .order_buys .see_more:hover {
+    color: #0056b3;
+    /* Darker blue for hover effect */
+    text-decoration: underline;
+}
+
+.dashboard_container .previous_orders .order_cards .order_card .order_price {
+    display: flex;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    justify-content: center;
+}
+
+.dashboard_container .previous_orders .order_cards .order_card .order_price h4 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #555;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.lato {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}

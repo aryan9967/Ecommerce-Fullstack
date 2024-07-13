@@ -1,0 +1,224 @@
+.offer_marquee {
+    width: 100vw;
+    height: 5vh;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.offer_marquee h5 {
+    margin-bottom: 0 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vh !important;
+    color: white;
+}
+
+/* SlidingText.css */
+.marquee {
+    width: 100vw;
+    height: 5vh;
+    background-color: rgb(27, 27, 27);
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.sliding-text {
+    margin-bottom: 0 !important;
+    display: inline-block;
+    position: absolute;
+    animation: slide-right 10s linear infinite;
+    font-size: 2vh !important;
+    color: rgb(255, 255, 255);
+    /* Adjust the text color as needed */
+}
+
+@keyframes slide-right {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.navbar1 {
+    width: 100vw;
+    height: 13vh;
+    padding: 0 1vw 0 0 !important;
+    background-color: rgba(255, 251, 251, 1);
+    display: flex;
+    align-items: center;
+    z-index: 10;
+}
+
+.navbar1 .logo {
+    margin-left: 1.5vw;
+    width: 10vw;
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.logo img {
+    width: 10vw;
+    height: 10vh;
+    object-fit: cover;
+}
+
+.searchbar {
+    margin-left: 12vw;
+    width: 40vw;
+    height: 8vh;
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar .search {
+    width: 35vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbar .search .srch1 {
+    width: 35vw;
+    height: 8vh;
+    padding: 1vw;
+    font-size: 2.4vh;
+    border: none;
+    outline: none;
+}
+
+.searchbar .srch1btn {
+    width: 5vw;
+    height: 8vh;
+    border: none;
+    outline: none;
+}
+
+.material-symbols-outlined {
+    line-height: normal;
+}
+
+.right_nav {
+    width: 33vw;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 0 0 2vw !important;
+    padding: 0 2vw 0 4vw !important;
+    /* margin: 0 !important; */
+}
+
+.right_nav li {
+    margin-left: 0.5vw;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    list-style: none;
+    cursor: pointer;
+    float: left;
+    justify-content: space-between;
+}
+
+.right_nav li .link_cats {
+    color: black;
+    /* padding: 20px 25px; */
+    text-decoration: none;
+    display: flex;
+    /* list-style: none; */
+}
+
+.right_nav li ul {
+    position: absolute;
+    left: inherit;
+    top: 14.5vh;
+    width: 12vw;
+    background: white;
+    display: none;
+    transition: all 1s;
+    padding: 0 !important;
+}
+
+.cat_li:hover {
+    border-bottom: 1px solid black;
+}
+
+.right_nav li:hover>ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2vh;
+}
+
+
+.right_nav li ul li {
+    /* position: relative; */
+    /* width: 100%; */
+    /* left: 0; */
+    margin-left: 0 !important;
+    padding: 1vh 1vw !important;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.right_nav li ul li:hover {
+    background-color: rgb(236, 236, 236);
+}
+
+.right_nav li ul li .link_cat {
+    text-decoration: none;
+    color: black;
+    /* border: 1px solid rgba(0, 0, 0, 0.2); */
+}
+
+.right_nav .login_link {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+
+.lato {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}

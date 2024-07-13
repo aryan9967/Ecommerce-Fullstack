@@ -1,0 +1,355 @@
+.regis_container {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    /* justify-content: center; */
+    flex-direction: column;
+    background-color: rgb(250, 250, 250);
+    overflow-y: scroll;
+}
+
+.regis_container .reg_title {
+    margin-top: 8vh;
+    margin-bottom: 6vh;
+}
+
+.regis_container .reg_title h2 {
+    font-size: 4.5vh !important;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.regis_container .reg_form {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regis_container .inpbar {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+}
+
+.regis_container .inpbar h4 {
+    font-size: 2.3vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    letter-spacing: 0.2vh;
+}
+
+.regis_container .inpbar input {
+    width: 25vw;
+    height: 6vh;
+    padding: 1vh;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    border: 1px solid rgb(124, 124, 124);
+    outline: 1px;
+    background-color: rgb(250, 250, 250);
+}
+
+
+.regis_container .otpbar {
+    width: 25vw;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2vh;
+}
+
+.regis_container .otpbar h4 {
+    font-size: 2.3vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    letter-spacing: 0.2vh;
+}
+
+.regis_container .otpbar input {
+    width: 25vw;
+    height: 6vh;
+    padding: 1vh;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    border: 1px solid rgb(124, 124, 124);
+    outline: 1px;
+    background-color: rgb(250, 250, 250);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.regis_container .reg_btn {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.regis_container .reg_btn:hover {
+    background-color: rgb(27, 27, 27);
+}
+
+.regis_container .log_text {
+    margin-top: 1.5vh;
+    margin-bottom: 3vh;
+    font-size: 2.45vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.regis_container .log_text .link_log {
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+}
+
+.regis_container .log_text .link_log:hover {
+    text-decoration: underline;
+}
+
+
+.regis_container .signin_google {
+    display: flex;
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    /* background-color: rgb(233, 0, 0, 0.75); */
+}
+
+.regis_container .signin_google .google_text {
+    width: 22vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 2.4vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(233, 0, 0, 0.75);
+    cursor: pointer;
+}
+
+.regis_container .signin_google .google_icon_btn {
+    width: 3vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgb(233, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.regis_container .signin_google:hover {
+    .google_text {
+        background-color: rgb(233, 0, 0, 0.65);
+    }
+
+    .google_icon_btn {
+        background-color: rgba(233, 0, 0, 0.5);
+    }
+}
+
+.regis_container .signin_phone {
+    display: flex;
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    /* background-color: rgb(233, 0, 0, 0.75); */
+}
+
+.regis_container .signin_phone .phone_text {
+    width: 22vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 2.4vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(0, 123, 255, 0.75);
+    cursor: pointer;
+}
+
+.regis_container .signin_phone .phone_icon_btn {
+    width: 3vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(0, 123, 255, 0.6);
+    cursor: pointer;
+}
+
+.regis_container .signin_phone:hover {
+    .phone_text {
+        background-color: rgba(0, 123, 255, 0.65);
+    }
+
+    .phone_icon_btn {
+        background-color: rgba(0, 123, 255, 0.5);
+    }
+}
+
+
+.regis_container .signin_seller {
+    display: flex;
+    margin-bottom: 2vh;
+    width: 25vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    /* background-color: rgb(233, 0, 0, 0.75); */
+}
+
+.regis_container .signin_seller .seller_text {
+    width: 22vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    font-size: 2.4vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(128, 0, 128, 0.75);
+    cursor: pointer;
+}
+
+.regis_container .signin_seller .seller_icon_btn {
+    width: 3vw;
+    height: 7vh;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vh;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: rgba(128, 0, 128, 0.6);
+    cursor: pointer;
+}
+
+.regis_container .signin_seller:hover {
+    .seller_text {
+        background-color: rgba(128, 0, 128, 0.65);
+    }
+
+    .seller_icon_btn {
+        background-color: rgba(128, 0, 128, 0.5);
+    }
+}
+
+
+.roboto-light {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.roboto-mono {
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.lato {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+
+
+
+
+
+
+.regis_container .divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.regis_container .line {
+    width: 6vw;
+    flex-grow: 1;
+    height: 1px;
+    background-color: #000;
+    margin: 0 6px;
+    opacity: 0.5;
+}
+
+.regis_container .sellerline {
+    width: 8vw;
+    flex-grow: 1;
+    height: 1px;
+    background-color: #000;
+    margin: 0 6px;
+    opacity: 0.5;
+}
+
+.regis_container .divider-text {
+    font-size: 16px;
+    color: #000;
+}

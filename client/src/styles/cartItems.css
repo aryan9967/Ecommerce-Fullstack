@@ -1,0 +1,286 @@
+.dashboard_container {
+    width: 100vw;
+    display: flex;
+    /* overflow-x: hidden; */
+}
+
+.dashboard_container .dashboard_content {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_container .cart_navigate_container {
+    margin: 0.8vw 0 0 4vw;
+    height: 5.5vh;
+    display: flex;
+}
+
+.dashboard_container .cart_navigate_container .cart_navigate {
+    width: 11vw;
+    height: 5.5vh;
+    border: 1px solid rgba(34, 139, 34, 0.75);
+    outline: none;
+    font-size: 2.4vh;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: rgba(34, 139, 34, 0.75);
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.dashboard_container .cart_navigate_container .cart_navigate:hover {
+    border: 1px solid rgb(200, 200, 200);
+    color: #fff;
+    background-color: rgba(34, 139, 34, 0.75);
+}
+
+.dashboard_container .cart_items {
+    margin: 0.8vw 0 0 4vw;
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(230, 230, 230);
+    border-bottom: none;
+}
+
+.dashboard_container .cart_items .cart_header {
+    width: 70vw;
+    height: 9vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vw;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.dashboard_container .cart_items .cart_header h3 {
+    font-size: 1.65rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.06vh;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .cart_items .cart_header h4 {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .all_carts {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_container .all_carts .cart {
+    width: 70vw;
+    height: 30vh;
+    display: flex;
+    border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.dashboard_container .all_carts .cart .cart_img {
+    width: 15vw;
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+.dashboard_container .cart .cart_img img {
+    width: 14.5vw;
+    height: 29vh;
+    object-fit: cover;
+}
+
+.dashboard_container .cart .cart_details {
+    width: 50vw;
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+
+.dashboard_container .cart .cart_details .cart_name {
+    margin-top: 2vh;
+    margin-bottom: 0.6vh;
+    display: flex;
+}
+
+.dashboard_container .cart .cart_details .cart_name h3 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0vh !important;
+}
+
+.dashboard_container .cart .cart_details .cart_avail {
+    margin-bottom: 1vh;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard_container .cart .cart_details .cart_avail h5 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(1, 163, 1);
+    margin-bottom: 0 !important;
+    /* Your desired text color */
+}
+
+.dashboard_container .cart .cart_details .cart_rate {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard_container .cart .cart_details .star {
+    font-size: 1.1rem;
+    color: #FFD700;
+    /* background-color: #FFD700; */
+}
+
+.dashboard_container .cart .cart_details .product_size {
+    margin-top: 0.8vh;
+    display: flex;
+}
+
+.dashboard_container .cart .cart_details .product_size h4 {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .cart .cart_details .product_category {
+    margin-top: 0.9vh;
+    display: flex;
+}
+
+.dashboard_container .cart .cart_details .product_category h4 {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 0 !important;
+}
+
+
+.dashboard_container .cart .cart_details .cart_quantity {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0;
+}
+
+.dashboard_container .cart .cart_details .cart_quantity .quantity_control {
+    margin-top: 1.5vh;
+    display: flex;
+    align-items: center;
+}
+
+.dashboard_container .cart .cart_details .quantity_control .quantity_btn {
+    border: 1px solid #ddd;
+    background-color: #fff;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.dashboard_container .cart .cart_details .quantity_control .quantity_input {
+    width: 3vw;
+    text-align: center;
+    margin: 0 10px;
+    padding: 4px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    appearance: textfield;
+    -moz-appearance: textfield;
+    /* For Firefox */
+    -webkit-appearance: none;
+    /* For Chrome, Safari, Edge, and Opera */
+}
+
+
+.dashboard_container .cart .cart_details .quantity_control .quantity_input::-webkit-outer-spin-button,
+.quantity_input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.dashboard_container .cart .cart_details .cart_quantity .vertical-divider {
+    width: 1px;
+    /* Thin line */
+    height: 80%;
+    /* Full height */
+    background-color: #ccc;
+    /* Color of the divider */
+    margin: 0 10px;
+    /* Optional: space around the divider */
+}
+
+.dashboard_container .cart .cart_details .cart_quantity .remove_text {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+    /* Bootstrap blue shade or choose any blue shade you prefer */
+    cursor: pointer;
+    /* Makes it look clickable */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .cart .cart_details .cart_quantity .remove_text:hover {
+    color: #0056b3;
+    /* Darker blue for hover effect */
+    text-decoration: underline;
+}
+
+.dashboard_container .cart .cart_details .cart_quantity .see_more {
+    font-size: 0.8rem;
+    color: #007bff;
+    text-decoration: none;
+    /* Bootstrap blue shade or choose any blue shade you prefer */
+    cursor: pointer;
+    /* Makes it look clickable */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    margin-bottom: 0 !important;
+}
+
+.dashboard_container .cart .cart_details .cart_quantity .see_more:hover {
+    color: #0056b3;
+    /* Darker blue for hover effect */
+    text-decoration: underline;
+}
+
+.dashboard_container .all_carts .cart .cart_price {
+    display: flex;
+    margin-top: 2vh;
+    margin-right: 1vw;
+    justify-content: center;
+}
+
+.dashboard_container .all_carts .cart .cart_price h4 {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: #555;
+}

@@ -19,7 +19,11 @@ dotenv.config();
 const app = express();
 
 //middlewares
-app.use(cors());
+app.use(cors({
+  origin: 'https://ecommerce-frontend-1-11jd.onrender.com/', // allow only this origin
+  methods: ['GET', 'POST'], // allow only these methods
+  allowedHeaders: ['Content-Type', 'Authorization'] // allow only these headers
+}));
 app.use( bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 

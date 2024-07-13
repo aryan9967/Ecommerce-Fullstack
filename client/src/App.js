@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
+import Wishlist from "./pages/Wishlist.jsx"
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Policy from "./pages/Policy.jsx";

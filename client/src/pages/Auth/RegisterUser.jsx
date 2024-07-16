@@ -8,37 +8,59 @@ import toast from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faPhone, faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import l1 from '../../images/regis1a.jpg'
+import l1 from '../../images/regis1c.jpg'
 import '../../styles/registerUser.css';
 
 const RegisterUser = () => {
     var fname, lname, phone, otp, userVerify, uid, displayName, createdAt, lastLoginAt;
     const [btnText, setBtnText] = useState('Get OTP');
-    const [user, setUser] = useAuth();;
     const [error, setError] = useState("");
     const [retryCount, setRetryCount] = useState(0);
     const maxRetries = 3;
+    const [isRegistered, setIsRegistered] = useState(false);
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setIsRegistered(true);
+            return JSON.parse(storedUser);
+        } else {
+            setIsRegistered(false);
+            return null;
+        }
+    });
     const navigate = useNavigate();
 
 
     const recaptchaRef = useRef(null);
-
     useEffect(() => {
-        if (!recaptchaRef.current) {
-            recaptchaRef.current = new RecaptchaVerifier(auth, 'recaptcha', {
-                size: 'invisible',
-                callback: (response) => {
-                    console.log('Recaptcha solved', response);
-                }
-            });
+        const initializeRecaptcha = async () => {
+            try {
+                recaptchaRef.current = new RecaptchaVerifier(auth, 'recaptcha', {
+                    size: 'invisible',
+                    callback: (response) => {
+                        console.log('Recaptcha solved', response);
+                    }
+                });
 
-            recaptchaRef.current.render().then(function (widgetId) {
-                recaptchaRef.current.widgetId = widgetId;
-            }).catch(error => {
-                console.log('Recaptcha render error:', error);
-            });
-        }
-    }, [user]);
+                await recaptchaRef.current.render().then(function (widgetId) {
+                    recaptchaRef.current.widgetId = widgetId;
+                });
+
+            } catch (error) {
+                console.error('Recaptcha initialization error:', error);
+                // Handle error state or retry logic if necessary
+            }
+        };
+
+        initializeRecaptcha();
+
+        return () => {
+            if (recaptchaRef.current) {
+                recaptchaRef.current.clear();
+            }
+            console.log('Cleanup RecaptchaVerifier');
+        };
+    }, [phone, otp]);
 
     const sendOtp = async (e) => {
         e.preventDefault();
@@ -55,6 +77,11 @@ const RegisterUser = () => {
             fname = fnameInput.value;
             lname = lnameInput.value;
             phone = phoneInput.value;
+            if (!/^[0-9]{10}$/.test(phone)) {
+                setError('Please enter a valid 10-digit phone number.');
+                toast.error("Something went wrong!", phone);
+                return;
+            }
             var phoneNumber = '+91' + phone;
             const recaptcha = recaptchaRef.current;
             const confirmation = await signInWithPhoneNumber(auth, phoneNumber, recaptcha);
@@ -91,6 +118,11 @@ const RegisterUser = () => {
             var lnameInput = document.getElementById("lname");
             var phoneInput = document.getElementById("phone");
             otp = otpInput.value;
+            if (!/^[0-9]{6}$/.test(otp)) {
+                setError('Please enter a valid 6-digit OTP.');
+                toast.error("Something went wrong!");
+                return;
+            }
             const data = await userVerify.confirm(otp);
             data.uid = data.user.uid;
             uid = data.uid;
@@ -109,12 +141,6 @@ const RegisterUser = () => {
                 { displayName, phone, uid, createdAt, lastLoginAt }
             );
             if (res && res.data.success) {
-                toast.success(res.data.message, { duration: 3000 });
-                setUser({
-                    ...user,
-                    user: res.data.user,
-                    token: res.data.token,
-                });
                 localStorage.setItem('user', JSON.stringify(res.data));
             }
             setBtnText('Get OTP');
@@ -122,11 +148,21 @@ const RegisterUser = () => {
             fnameInput.parentElement.style.display = "flex";
             phoneInput.parentElement.style.display = "flex";
             otpInput.parentElement.style.display = "none";
+            document.cookie = 'popup=User Registered Successfully';
             navigate('/');
         } catch (error) {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        if (isRegistered) {
+            navigate('/');
+        }
+        return () => {
+            console.log('Cleanup on component unmount after getting cart items');
+        };
+    }, []);
 
     const toLogin = () => {
         navigate('/login-user');
@@ -198,7 +234,7 @@ const RegisterUser = () => {
                                 <FontAwesomeIcon className='phone_icon' icon={faPhone} />
                             </button>
                         </div>
-                        <div className="divider-container">
+                        {/* <div className="divider-container">
                             <div className="sellerline"></div>
                             <span className="divider-text">Planning to sell?</span>
                             <div className="sellerline"></div>
@@ -208,7 +244,7 @@ const RegisterUser = () => {
                             <button className="seller_icon_btn" onClick={toSeller}>
                                 <FontAwesomeIcon className='seller_icon' icon={faBagShopping} />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

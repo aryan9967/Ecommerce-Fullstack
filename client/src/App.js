@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage.jsx";
-import Wishlist from "./pages/Wishlist.jsx"
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Policy from "./pages/Policy.jsx";
@@ -15,7 +14,6 @@ import AdminRoute from "./components/Routes/AdminRoute.js";
 import AdminDashboard from "./pages/Admin/AdminDasboard.jsx";
 import CreateCategory from "./pages/Admin/CreateCategory.jsx";
 import Users from "./pages/Admin/Users.jsx";
-import Orders from "./pages/user/Dashboard/Orders.jsx";
 import Products from "./pages/Admin/Products.jsx";
 import UpdateProduct from "./pages/Admin/UpdateProduct.jsx";
 import Search from "./pages/Search.jsx";
@@ -26,12 +24,16 @@ import Header from "./components/Layout/Header.jsx";
 import RegisterSeller from "./pages/Auth/RegisterSeller.jsx";
 import LoginSeller from "./pages/Auth/LoginSeller.jsx";
 import Cart from "./pages/Cart.jsx";
-import PreviousOrders from "./pages/user/Dashboard/PreviousOrders.jsx";
-import CartItems from "./pages/user/Dashboard/CartItems.jsx";
 import ManageProducts from "./pages/user/Dashboard/ManageProducts.jsx";
 import CreateProduct from "./pages/user/Dashboard/CreateProduct.jsx";
 import LoginUser from "./pages/Auth/LoginUser.jsx";
 import RegisterUser from "./pages/Auth/RegisterUser.jsx";
+import PlaceOrder from "./pages/PlaceOrder.jsx";
+import Wishlist from "./pages/Wishlist.jsx";
+import DashboardEditProfile from "./pages/user/Dashboard/DashboardEditProfile.jsx";
+import DashboardOrders from "./pages/user/Dashboard/DashboardOrders.jsx";
+import DashboardAddress from "./pages/user/Dashboard/DashboardAddress.jsx";
+
 function App() {
   return (
     <>
@@ -40,16 +42,16 @@ function App() {
         <Route path="/product/:pid" element={<ProductDetails />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />
-        <Route path="/search" element={<Search />} />
+        <Route path="/search/:keyword" element={<Search />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/placeorder" element={<PlaceOrder />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/dashboard">
-          <Route path="user" element={<Dashboard />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="previous_orders" element={<PreviousOrders />} />
-          <Route path="cart_items" element={<CartItems />} />
+          <Route path="profile" element={<Dashboard />} />
+          <Route path="edit_profile" element={<DashboardEditProfile />} />
+          <Route path="orders" element={<DashboardOrders />} />
+          <Route path="address" element={<DashboardAddress />} />
           <Route path="manage_products" element={<ManageProducts />} />
           <Route path="create-product" element={<CreateProduct />} />
         </Route>

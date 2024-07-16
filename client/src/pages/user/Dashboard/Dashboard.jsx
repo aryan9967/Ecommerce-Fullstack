@@ -9,8 +9,15 @@ import '../../../styles/dashboard.css'
 import { useNavigate } from "react-router-dom";
 import DashboardSidebar from "../../../components/DashboardSidebar.jsx";
 import axios from "axios";
+import DashboardHeader from "../../../components/DashboardHeader.jsx";
+import ViewProfile from "../../../components/ViewProfile.jsx";
+import EditProfile from "../../../components/EditProfile.jsx";
+import Address from "../../../components/Address.jsx";
+import Orders from "../../../components/OrdersReturn.jsx";
+import OrdersReturn from "../../../components/OrdersReturn.jsx";
 
 const Dashboard = () => {
+    const [activeComponent, setActiveComponent] = useState('viewProfile'); // State to manage the active component
     const [openDropdowns, setOpenDropdowns] = useState({});
     const [priceRange, setPriceRange] = useState([0, 1799]);
     const [errors, setErrors] = useState({});
@@ -121,118 +128,10 @@ const Dashboard = () => {
     return (
         <Layout title={"Search results"}>
             <div className="dashboard_container">
-                <DashboardSidebar />
+                <DashboardHeader />
                 <div className="dashboard_content">
-                    <div className="edit_profile">
-                        <div className="edit_profile_nav">
-                            <h3>Your Profile</h3>
-                        </div>
-                        <form className="pro_form" action="">
-                            <div className="display_name">
-                                <div className="inpbar">
-                                    <h4>First Name</h4>
-                                    <input
-                                        id='fname'
-                                        name="fname"
-                                        type="text"
-                                        value={fname}
-                                        onChange={handleChange}
-                                        placeholder='' />
-                                </div>
-                                <div className="inpbar">
-                                    <h4>Last Name</h4>
-                                    <input
-                                        id='lname'
-                                        name="lname"
-                                        type="text"
-                                        value={lname}
-                                        onChange={handleChange}
-                                        placeholder='' />
-                                </div>
-                            </div>
-                            <div className="address1">
-                                <div className="inpbar">
-                                    <h4>Street</h4>
-                                    <input
-                                        id='street'
-                                        type="text"
-                                        name="street"
-                                        value={address.street}
-                                        onChange={handleAddressChange}
-                                        placeholder='' />
-                                </div>
-                                <div className="inpbar">
-                                    <h4>City</h4>
-                                    <input
-                                        id='city'
-                                        type="text"
-                                        name="city"
-                                        value={address.city}
-                                        onChange={handleAddressChange}
-                                        placeholder='' />
-                                </div>
-                            </div>
-                            <div className="address1">
-                                <div className="inpbar">
-                                    <h4>State</h4>
-                                    <input
-                                        id='state'
-                                        type="text"
-                                        name="state"
-                                        value={address.state}
-                                        onChange={handleAddressChange}
-                                        placeholder='' />
-                                </div>
-                                <div className="inpbar">
-                                    <h4>Zip</h4>
-                                    <input
-                                        id='zip'
-                                        type="text"
-                                        name="zip"
-                                        value={address.zip}
-                                        onChange={handleAddressChange}
-                                        placeholder='' />
-                                </div>
-                            </div>
-                            <div className="address1">
-                                <div className="inpbar">
-                                    <h4>Country</h4>
-                                    <input
-                                        id='country'
-                                        type="text"
-                                        name="country"
-                                        value={address.country}
-                                        onChange={handleAddressChange}
-                                        placeholder='' />
-                                </div>
-                            </div>
-                            <div className="phone_number">
-                                <div className="inpbar">
-                                    <h4>Phone Number</h4>
-                                    <input
-                                        id='phone'
-                                        type="tel"
-                                        name="phone"
-                                        value={phone}
-                                        onChange={handleChange}
-                                        pattern='[0-9]{10}'
-                                        placeholder='' />
-                                </div>
-                                <div className="otpbar">
-                                    <h4>OTP</h4>
-                                    <input
-                                        id='otp'
-                                        type="text"
-                                        pattern='[0-9]{6}'
-                                        placeholder='' />
-                                </div>
-                                <div id='recaptcha'></div>
-                            </div>
-                            <div className="update_btn_container">
-                                <button className="update_btn" onClick={handleUpdate}>Update</button>
-                            </div>
-                        </form>
-                    </div>
+                    <DashboardSidebar />
+                    <ViewProfile />
                 </div>
             </div>
         </Layout>

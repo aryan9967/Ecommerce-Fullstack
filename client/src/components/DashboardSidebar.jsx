@@ -10,89 +10,63 @@ const DashboardSidebar = () => {
     const [openDropdowns, setOpenDropdowns] = useState({});
     const [priceRange, setPriceRange] = useState([0, 1799]);
     const navigate = useNavigate();
-    // const [values, setValues] = useSearch();
-    // console.log(values);
 
-    const toEditProfile = (e) => {
-        console.log(e);
-        const { id } = e.target;
-        let button = document.getElementById(id);
-        button.style.backgroundColor = "#f0e6fe";
-        navigate('/dashboard/user');
-    }
+    const handleNavigate = (e) => {
+        const id = e.target.id || e.target.closest('.sidebar_text').id;
+        console.log(id);
+        if (id === "orders") navigate('/dashboard/orders');
+        if (id === "view_profile") navigate('/dashboard/profile');
+        if (id === "address") navigate('/dashboard/address');
+    };
 
-    const toCurrentOrders = (e) => {
-        console.log(e);
-        const { id } = e.target;
-        let button = document.getElementById(id);
-        button.style.backgroundColor = "#f0e6fe";
-        console.log('toCurrentOrders');
-        navigate('/dashboard/orders');
-    }
-
-    const toPreviousOrders = (e) => {
-        console.log(e);
-        const { id } = e.target;
-        let button = document.getElementById(id);
-        button.style.backgroundColor = "#f0e6fe";
-        console.log('toCurrentOrders');
-        navigate('/dashboard/previous_orders');
-    }
-
-    const toCartItems = (e) => {
-        const { id } = e.target;
-        let button = document.getElementById(id);
-        button.style.backgroundColor = "#f0e6fe";
-        console.log('toCurrentOrders');
-        navigate('/dashboard/cart_items');
-    }
-
-    const toManageProducts = (e) => {
-        console.log(e);
-        const { id } = e.target;
-        let button = document.getElementById(id);
-        button.style.backgroundColor = "#f0e6fe";
-        console.log('toCurrentOrders');
-        navigate('/dashboard/manage_products');
-    }
-
-    const toSalesSummary = (e) => {
-        console.log(e);
-        const { id } = e.target;
-        let button = document.getElementById(id);
-        button.style.backgroundColor = "#f0e6fe";
-        console.log('toCurrentOrders');
-        navigate('/dashboard/sales_summary');
-    }
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        localStorage.removeItem("auth");
+        navigate("/");
+    };
 
     return (
         <>
             <div className="dashboard_sidebar">
                 <div className="sidebar_content">
                     <div className="sidebar_btn">
-                        <button className="sidebar_text" id="edit_profile" onClick={toEditProfile}>
-                            <h4>Edit Profile</h4>
-                        </button>
+                        <div className="sidebar_tag">
+                            <h3>Orders</h3>
+                        </div>
+                        <div className="sidebar_text"
+                            id="orders"
+                            onClick={handleNavigate}>
+                            <h4>Orders & Returns</h4>
+                        </div>
                     </div>
                     <div className="sidebar_btn">
-                        <button className="sidebar_text" id="current_orders" onClick={toCurrentOrders}>
-                            <h4>Orders</h4>
-                        </button>
+                        <div className="sidebar_tag">
+                            <h3>Account</h3>
+                        </div>
+                        <div className="sidebar_text"
+                            id="view_profile"
+                            onClick={handleNavigate}>
+                            <h4>Profile</h4>
+                        </div>
+                        <div className="sidebar_text"
+                            id="address"
+                            onClick={handleNavigate}>
+                            <h4>Address</h4>
+                        </div>
+                        <div className="sidebar_text" onClick={handleLogout}>
+                            <h4>Logout</h4>
+                        </div>
                     </div>
                     <div className="sidebar_btn">
-                        <button className="sidebar_text" id="previous_orders" onClick={toPreviousOrders}>
-                            <h4>Previous Orders</h4>
-                        </button>
-                    </div>
-                    <div className="sidebar_btn">
-                        <button className="sidebar_text" id="manage_products" onClick={toManageProducts}>
-                            <h4>Manage Products</h4>
-                        </button>
-                    </div>
-                    <div className="sidebar_btn">
-                        <button className="sidebar_text" id="sales_summary" onClick={toSalesSummary}>
-                            <h4>Sales Summary</h4>
-                        </button>
+                        <div className="sidebar_tag">
+                            <h3>Legal</h3>
+                        </div>
+                        <div className="sidebar_text">
+                            <h4>Term of Use</h4>
+                        </div>
+                        <div className="sidebar_text">
+                            <h4>Privacy Policy</h4>
+                        </div>
                     </div>
                 </div>
             </div>

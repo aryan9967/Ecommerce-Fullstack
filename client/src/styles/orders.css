@@ -1,28 +1,21 @@
-.dashboard_container {
-    width: 100vw;
-    display: flex;
-    background-color: #f5f5f5;
-    /* overflow-x: hidden; */
-}
-
-.dashboard_container .dashboard_content {
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-}
-
 /* Profile Order History */
 .dashboard_container .orders_content {
-    margin: 0 0 0 4vw;
+    margin: 1vh 0 0 4vw;
     width: 65vw;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(235, 214, 250);
+    border: 1px solid var(--primary_container_border);
+    box-shadow: rgba(25, 25, 46, 0.13) 0px 25px 50px -10px, rgba(0, 0, 0, 0.3) 0px 15px 30px -15px;
     border-bottom: none;
     overflow-x: hidden;
     overflow-y: auto;
     position: sticky;
     top: 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .dashboard_container .orders_content .order_header {
@@ -32,7 +25,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1vw;
-    border-bottom: 1px solid rgb(235, 214, 250);
+    border-bottom: 1px solid var(--primary_container_border);
 }
 
 .dashboard_container .orders_content .order_header h3 {
@@ -40,7 +33,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #9c46df;
+    color: var(--text);
     letter-spacing: 0.06vh;
     margin-bottom: 0 !important;
 }
@@ -50,7 +43,7 @@
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
-    color: #9c46df;
+    color: var(--text);
     font-style: normal;
     margin-bottom: 0 !important;
 }
@@ -121,7 +114,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 1.3rem;
     font-weight: 400;
-    color: #9c46df;
+    color: var(--text);
     margin-bottom: 0vh !important;
 }
 
@@ -135,7 +128,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 14px;
     font-weight: 400;
-    color: rgb(1, 163, 1);
+    color: var(--success);
     margin-bottom: 0 !important;
     /* Your desired text color */
 }
@@ -162,7 +155,7 @@
     font-style: normal;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -176,7 +169,7 @@
     font-style: normal;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -190,7 +183,7 @@
     font-style: normal;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -217,7 +210,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0vh !important;
 }
 
@@ -225,7 +218,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0vh !important;
 }
 
@@ -233,7 +226,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 0.8rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-top: 0.5vh !important;
     margin-bottom: 0vh !important;
     cursor: pointer;
@@ -326,8 +319,8 @@
 .dashboard_container .order_cards .order_card .order_price h4 {
     font-family: 'Roboto Mono', monospace;
     font-size: 0.9rem;
-    font-weight: 400;
-    color: #a156da;
+    font-weight: 500;
+    color: var(--text);
 }
 
 

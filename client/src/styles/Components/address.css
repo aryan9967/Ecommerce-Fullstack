@@ -1,0 +1,176 @@
+.address_container {
+    height: fit-content;
+    display: flex;
+    padding: 4vh 4vw 6vh 4vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.address_container .address_content {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.address_container .address_content .address_title {
+    width: 47vw;
+    display: flex;
+    padding: 0 0 1vh 0.5vw;
+    border-bottom: 1px solid var(--primary_container_border);
+}
+
+.address_container .address_content .address_title h4 {
+    font-size: 1.7rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.address_container .address_content .address_details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5vw;
+    gap: 2vh;
+}
+
+/* .address_container .address_content .address_details .change_phone {
+    width: 35vw;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--primary_container_border);
+    padding: 1vh 1vw;
+}
+
+.address_container .address_content .address_details .change_phone .phone_details {
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5vh;
+}
+
+.address_container .address_content .address_details .change_phone .phone_details .phone_tag {
+    font-size: 1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.address_container .address_content .address_details .change_phone .phone_details .phone_value {
+    font-size: 0.85rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.address_container .address_content .address_details .change_phone .phone_btn_container {
+    width: 18vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address_container .address_content .address_details .change_phone .phone_btn_container .phone_btn {
+    width: 18vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid var(--primary_container_border);
+    color: var(--text);
+    cursor: pointer;
+} */
+
+.address_container .address_content .address_details .address_form {
+    width: 47vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+
+.address_container .address_content .address_details .address_form .inpbar_container {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.address_container .address_content .address_details .address_form .inpbar_container .inpbar {
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.address_container .address_content .address_details .address_form .inpbar_container .inpbar input {
+    width: 22vw;
+    height: 6vh;
+    padding: 2vh 0.3vw 0 0.3vw;
+    font-size: 0.9rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    border: none;
+    border-bottom: 1px solid rgb(124, 124, 124);
+    outline: 1px;
+    background-color: transparent;
+}
+
+.address_container .address_content .address_details .address_form .address_btn_container {
+    margin-top: 4vh;
+    width: 47vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.address_container .address_content .address_details .address_form .address_btn_container .address_btn {
+    width: 20vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: white;
+    background-color: var(--success);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.address_container .address_content .address_details .address_form .address_btn_container .address_btn:hover {
+    background-color: var(--success_hover);
+}

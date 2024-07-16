@@ -51,6 +51,47 @@ const Profile = () => {
         navigate('/dashboard/user');
     };
 
+    const handleImage = () => {
+        var user_img = document.getElementById('user_img');
+        console.log(user_img);
+        user_img.click();
+    };
+
+    const changeUserImage = async (event) => {
+        const file = event.target.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        // Log FormData entries
+        for (let pair of formData.entries()) {
+            console.log(pair[0] + ': ' + pair[1]);
+        }
+        try {
+            const response = await axios.post(
+                `${process.env.REACT_APP_API}/api/v1/user/update_user`,
+                formData, {
+                headers: {
+                    "Authorization": user?.token
+                }
+            });
+            console.log('Response:', response.data);
+
+            let userData = user;
+
+            // Check if userData, userData.user, and userData.user.photoUrl exist before assignment
+            if (userData && userData.user && userData.user.photoUrl) {
+                userData.user.photoUrl = response.data.photoUrl;
+                console.log(userData);
+            }
+
+            setUser(userData);
+            localStorage.setItem('user', JSON.stringify(user));
+            // Perform any additional logic after a successful API call
+        } catch (error) {
+            console.error('Error:', error);
+            // Handle the error appropriately
+        }
+    };
+
     useEffect(() => {
         if (!isRegistered) {
             navigate('/');
@@ -70,20 +111,25 @@ const Profile = () => {
         <Layout title={'Your Profile'}>
             <div className="profile_container">
                 <div className="profile_details">
+                    <input
+                        id='user_img'
+                        type="file"
+                        alt="Upload"
+                        accept="image/*"
+                        onChange={changeUserImage}
+                        placeholder='' />
                     <div className="profile_photo">
-                        <img src={profile} alt="" />
-                        <button className="photo_btn">Change Photo</button>
+                        <img src={user?.user?.photoUrl ? user?.user?.photoUrl : profile} alt="Profile" />
+                        <button className="photo_btn" onClick={handleImage}>Change Photo</button>
                     </div>
                     <div className="profile_info">
                         <div className="profile_name">
                             <h3>{user?.user?.name}</h3>
                         </div>
-                        {user?.user?.address && (
-                            <>
-                                <div className="profile_address">
-                                    <h4>{user?.user?.address}</h4>
-                                </div>
-                            </>
+                        {user?.user?.address && ( // Check if address exists
+                            <div className="profile_address">
+                                <h4>{`${user?.user?.address?.street}, ${user?.user?.address?.city}, ${user?.user?.address?.state}, ${user?.user?.address?.country} - ${user?.user?.address?.zip}`}</h4>
+                            </div>
                         )}
                     </div>
                     <div className="profile_btn">
@@ -97,9 +143,9 @@ const Profile = () => {
                         <h4 className="price_tag">Price</h4>
                     </div>
                     <div className="order_cards">
-                        {parr?.map((p) => (
+                        {parr?.map((p, index) => (
                             <>
-                                <div className="order_card">
+                                <div className="order_card" key={index}>
                                     <div className="order_img">
                                         <img src={p} alt="" />
                                     </div>

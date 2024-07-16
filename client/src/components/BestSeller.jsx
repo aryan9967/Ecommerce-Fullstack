@@ -25,6 +25,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 const BestSeller = () => {
     const [parr, setParr] = useState([photo1, photo2, photo3, photo4, photo5, photo6, photo7, photo8, photo9, photo10])
@@ -50,9 +51,9 @@ const BestSeller = () => {
             toast.error('Something went wrong while getting category');
         }
     }
-    
+
     const toProductDetails = async (pid) => {
-      navigate(`/product/${pid}`)
+        navigate(`/product/${pid}`)
     }
 
     useEffect(() => {
@@ -100,12 +101,15 @@ const BestSeller = () => {
                 {bestSeller?.map((bs) => (
                     <>
                         <SwiperSlide>
-                            <div className="card" onClick={() => toProductDetails(bs.pid)}>
+                            <div className="card" onClick={() => toProductDetails(bs?.pid)}>
                                 <div className="crdimg">
-                                    <img src={bs.main_image} alt="" />
+                                    {/* <div className="wishlist">
+                                        <FontAwesomeIcon className='wishlist_icon' icon={faHeart} />
+                                    </div> */}
+                                    <img src={bs?.main_image} alt="" />
                                 </div>
                                 <div className="crd_content">
-                                    <h3 className="crd_name">{bs.product_name}</h3>
+                                    <h3 className="crd_name">{bs?.product_name}</h3>
                                     <div className="crd_rating">
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                         <FontAwesomeIcon className="star" icon={faStar} />
@@ -113,7 +117,7 @@ const BestSeller = () => {
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                     </div>
-                                    <p className="crd_price">₹{bs.display_price}</p>
+                                    <p className="crd_price">₹{bs?.display_price}.00</p>
                                 </div>
                             </div>
                         </SwiperSlide>

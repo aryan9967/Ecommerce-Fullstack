@@ -50,7 +50,7 @@ const Banner = () => {
                 cssMode={true}
                 navigation={true}
                 autoplay={{
-                    delay: 2500,
+                    delay: 3500,
                     disableOnInteraction: false,
                 }}
                 pagination={{
@@ -65,7 +65,7 @@ const Banner = () => {
                 {banners?.map((b) => (
                     <>
                         <SwiperSlide>
-                            <img className="banner_img" src={b.imageurl} alt="" />
+                            <img className="banner_img" src={b?.imageurl} alt="" />
                         </SwiperSlide>
                     </>
                 ))}

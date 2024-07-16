@@ -78,6 +78,18 @@ const HomePage = () => {
     navigate(`/product/${pid}`)
   }
 
+  useEffect(() => {
+    let popup = document.cookie.split('-')[0];
+    let status = document.cookie.split('-')[1];
+    if (!popup && status == "success") {
+      toast.success(popup);
+    }
+    return () => {
+      console.log('Cleanup on component unmount after checking user details');
+      document.cookie = 'popup=;expiry=0';
+    };
+  }, []);
+
   return (
     <Layout title={"ALl Products - Best offers "}>
       <div className="home">

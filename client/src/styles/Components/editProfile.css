@@ -1,0 +1,205 @@
+.edit_profile {
+    width: 55vw;
+    display: flex;
+    height: fit-content;
+    padding: 4vh 4vw 6vh 4vw;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    background-color: var(--bgcolor_extra_thin);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.edit_profile .edit_profile_content {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
+}
+
+.edit_profile .edit_profile_content .edit_profile_title {
+    width: 47vw;
+    display: flex;
+    padding: 0 0 1vh 0.5vw;
+    border-bottom: 1px solid var(--primary_container_border);
+}
+
+.edit_profile .edit_profile_content .edit_profile_title h4 {
+    font-size: 1.7rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.5vw;
+    gap: 2vh;
+}
+
+/* .edit_profile .edit_profile_content .edit_profile_details .change_phone {
+    width: 35vw;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid var(--primary_container_border);
+    padding: 1vh 1vw;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .change_phone .phone_details {
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5vh;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .change_phone .phone_details .phone_tag {
+    font-size: 1rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .change_phone .phone_details .phone_value {
+    font-size: 0.85rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .change_phone .phone_btn_container {
+    width: 18vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .change_phone .phone_btn_container .phone_btn {
+    width: 18vw;
+    height: 5vh;
+    border: none;
+    outline: none;
+    font-size: 0.9rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: transparent;
+    border: 1px solid var(--primary_container_border);
+    color: var(--text);
+    cursor: pointer;
+} */
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form {
+    width: 47vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .inpbar_container {
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .inpbar_container .inpbar {
+    width: 22vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .inpbar_container .inpbar input {
+    width: 22vw;
+    height: 6vh;
+    padding: 2vh 0.3vw 0 0.3vw;
+    font-size: 0.95rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    border: none;
+    border-bottom: 1px solid rgb(124, 124, 124);
+    outline: 1px;
+    background-color: transparent;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .inpbar_container .inpbar .gender_select {
+    width: 22vw;
+    height: 6vh;
+    border: none;
+    border-bottom: 1px solid var(--primary_container_border_extra_dark) !important;
+    outline: none;
+    background-color: transparent;
+    margin-right: 1vw;
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    padding-left: 0.5vh;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .inpbar_container .inpbar .gender_select option {
+    background-color: white;
+    font-size: 0.8rem;
+    /* letter-spacing: -1vh; */
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .update_btn_container {
+    margin-top: 4vh;
+    width: 47vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .update_btn_container .update_btn {
+    width: 20vw;
+    height: 6vh;
+    border: none;
+    outline: none;
+    font-size: 2vh;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.05vw;
+    color: white;
+    background-color: var(--success);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    cursor: pointer;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.edit_profile .edit_profile_content .edit_profile_details .edit_form .update_btn_container .update_btn:hover {
+    background-color: var(--success_hover);
+}

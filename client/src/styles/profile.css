@@ -1,27 +1,35 @@
 .profile_container {
     width: 100vw;
     /* height: 85vh; */
-    background-color: #f5f5f5;
+    background-color: var(--bgcolor);
     display: flex;
     flex-direction: row;
     overflow: hidden;
 }
 
 .profile_container .profile_details {
+    margin: 1vh 0 0 0.5vw;
     width: 25vw;
-    height: 86vh;
+    height: 84vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid rgb(235, 214, 250);
-    /* background-color: #f9f4ff; */
-    border-top: none;
+    border: 1px solid var(--primary_container_border);
+    box-shadow: rgba(25, 25, 46, 0.13) 0px 25px 50px -10px, rgba(0, 0, 0, 0.3) 0px 15px 30px -15px;
+    /*background-color: #f9f4ff;
+    */
     position: sticky;
     top: 0;
-    /* overflow-y: auto; */
-    /* Ensure background covers content during scrolling */
     z-index: 10;
-    /* Ensure it stays above other elements */
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+#user_img {
+    display: none;
 }
 
 .profile_container .profile_details .profile_photo {
@@ -47,22 +55,22 @@
 .profile_container .profile_details .profile_photo .photo_btn {
     width: 12vw;
     height: 5.5vh;
-    border: 1px solid #a74bed;
+    border: 1px solid var(--accent);
     outline: none;
     font-size: 2.1vh;
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     text-transform: capitalize;
-    color: #a74bed;
+    color: var(--accent);
     background-color: #fff;
     cursor: pointer;
 }
 
 .profile_container .profile_details .profile_photo .photo_btn:hover {
-    border: 1px solid #f5f5f5;
+    border: 1px solid var(--primary_container_border);
     color: #fff;
-    background-color: #a74bed;
+    background-color: var(--accent);
 }
 
 .profile_container .profile_details .profile_info {
@@ -84,7 +92,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 1.3rem;
     font-weight: 400;
-    color: #9c46df;
+    color: var(--text);
     margin-bottom: 0vh !important;
 }
 
@@ -99,7 +107,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 0.9rem;
     font-weight: 300;
-    color: #9b44de;
+    color: var(--text);
     margin-bottom: 0vh !important;
 }
 
@@ -114,63 +122,68 @@
 .profile_container .profile_details .profile_btn .dashboard_btn {
     width: 11vw;
     height: 5.5vh;
-    border: 1px solid #a74bed;
+    border: 1px solid var(--accent);
     outline: none;
     font-size: 2.1vh;
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     text-transform: capitalize;
-    color: #a74bed;
+    color: var(--accent);
     background-color: #fff;
     cursor: pointer;
 }
 
 .profile_container .profile_details .profile_btn .dashboard_btn:hover {
-    border: 1px solid #f5f5f5;
+    border: 1px solid var(--primary_container_border);
     color: #fff;
-    background-color: #a74bed;
+    background-color: var(--accent);
 }
 
 .profile_container .profile_details .profile_btn .logout_btn {
     width: 11vw;
     height: 5.5vh;
-    border: 1px solid #a74bed;
+    border: 1px solid var(--accent);
     outline: none;
     font-size: 2.1vh;
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     text-transform: capitalize;
-    color: #a74bed;
+    color: var(--accent);
     background-color: #fff;
     cursor: pointer;
 }
 
 .profile_container .profile_details .profile_btn .logout_btn:hover {
-    border: 1px solid #f5f5f5;
+    border: 1px solid var(--primary_container_border);
     color: #fff;
-    background-color: #a74bed;
+    background-color: var(--accent);
 }
 
 /* Profile Order History */
 .profile_container .profile_order {
-    margin: 0 0 0 4vw;
+    margin: 1vh 0 0 4vw;
     width: 65vw;
     height: 86vh;
     display: flex;
     flex-direction: column;
-    border: 1px solid rgb(235, 214, 250);
+    border: 1px solid var(--primary_container_border);
+    box-shadow: rgba(25, 25, 46, 0.13) 0px 25px 50px -10px, rgba(0, 0, 0, 0.3) 0px 15px 30px -15px;
     border-bottom: none;
+    border-radius: 10px;
     overflow-x: hidden;
     overflow-y: auto;
     top: 0;
-    /* Stick to the top of the viewport */
-
-    /* Hides the scrollbar for Webkit browsers (e.g., Chrome, Safari) */
+    /*Sticktothetopoftheviewport*/
+    /*HidesthescrollbarforWebkitbrowsers(e.g.,Chrome,Safari)*/
     -ms-overflow-style: none;
-    /* Internet Explorer 10+ */
+    /*InternetExplorer10+*/
     scrollbar-width: none;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .profile_container .profile_order .order_header {
@@ -180,7 +193,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 1vw;
-    border-bottom: 1px solid rgb(235, 214, 250);
+    border-bottom: 1px solid var(--primary_container_border);
 }
 
 .profile_container .profile_order .order_header h3 {
@@ -188,7 +201,7 @@
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: #9c46df;
+    color: var(--text);
     letter-spacing: 0.06vh;
     margin-bottom: 0 !important;
 }
@@ -199,7 +212,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-    color: #9c46df;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -215,7 +228,7 @@
     height: 29vh;
     display: flex;
     gap: 1vw;
-    border-bottom: 1px solid rgb(235, 214, 250);
+    border-bottom: 1px solid var(--primary_container_border);
 }
 
 .profile_container .order_cards .order_card .order_img {
@@ -252,7 +265,7 @@
     font-family: 'Roboto Mono', monospace;
     font-size: 1.3rem;
     font-weight: 400;
-    color: #9c46df;
+    color: var(--text);
     margin-bottom: 0vh !important;
 }
 
@@ -293,7 +306,7 @@
     font-style: normal;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -307,7 +320,7 @@
     font-style: normal;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -321,7 +334,7 @@
     font-style: normal;
     font-size: 0.95rem;
     font-weight: 400;
-    color: #a74bed;
+    color: var(--text);
     margin-bottom: 0 !important;
 }
 
@@ -340,22 +353,22 @@
 .profile_container .order_card .order_details .order_buys .order_buy .buy_again {
     width: 10vw;
     height: 5vh;
-    border: 1px solid #a74bed;
+    border: 1px solid var(--accent);
     outline: none;
     font-size: 2.1vh;
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
     text-transform: capitalize;
-    color: #a74bed;
+    color: var(--accent);
     background-color: #fff;
     cursor: pointer;
 }
 
 .profile_container .order_card .order_details .order_buys .order_buy .buy_again:hover {
-    border: 1px solid #f5f5f5;
+    border: 1px solid var(--primary_container_border);
     color: #fff;
-    background-color: #a74bed;
+    background-color: var(--accent);
 }
 
 .profile_container .order_card .order_details .order_buys .vertical-divider {
@@ -419,8 +432,8 @@
 .profile_container .order_cards .order_card .order_price h4 {
     font-family: 'Roboto Mono', monospace;
     font-size: 0.9rem;
-    font-weight: 400;
-    color: #a156da;
+    font-weight: 500;
+    color: var(--text);
 }
 
 

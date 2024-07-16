@@ -3,6 +3,7 @@ import { db, admin } from "../DB/firestore.js";
 import dotenv from "dotenv"
 import { FieldValue } from "firebase-admin/firestore"
 import slugify from "slugify";
+import { v4 as uuidv4 } from 'uuid';
 
 dotenv.config()
 
@@ -25,6 +26,29 @@ async function get_user_details(req, res) {
     }
 }
 
+async function get_user_address_contact(req, res) {
+    const user_id = req.user_id
+    if (user_id) {
+        try{
+            const doc = await db.collection(process.env.userCollection).doc(user_id).get()
+            const {address, contact} = doc.data()
+            const data = {
+                address,
+                contact
+            }
+            res.status(200).send(data)
+        }
+        catch(err){
+            console.error(err)
+            return res.status(500).send("Internal server error")
+        }
+    }
+    else {
+        return res.status(400).send()
+    }
+}
+
+
 //function that updates user details (name, address, profile img)
 /* 
     request url = http://localhost:8080/api/v1/user/update_user
@@ -38,12 +62,39 @@ async function update_user_details(req, res) {
     if (req.user_id) {
         try {
             let photoUrl = ""
-            const { name, address } = req.body
+            let { name, alternative_phone, email, dob, gender, address } = req.body;
+            // Create the updates object only with provided fields
+            const updates = {};
+            if (name) updates.name = name;
+            if (alternative_phone) updates.alternative_phone = alternative_phone;
+            if (email) updates.email = email;
+            if (dob) updates.dob = dob;
+            if (gender) updates.gender = gender;
+            if (address) updates.address = JSON.parse(address);
+
+            console.log("file", req.file)
             console.log(name, address)
             if (req.file) {
                 if (req.file.mimetype == "image/jpeg" || req.file.mimetype == "image/jpg" || req.file.mimetype == "image/png") {
-                    const blob = bucket.file(`users/${req.user_id}`)
-                    const blobStream = blob.createWriteStream()
+
+                    const doc_data = await db.collection(process.env.userCollection).doc(req.user_id).get()
+                    const previous_url = doc_data.data().photoUrl
+                    if (previous_url) {
+                        const url = new URL(previous_url);
+                        const filepath = url.pathname.replace(`/maulikecommerceintern.appspot.com`, '').substring(1);
+                        console.log("filepath for each file", filepath);
+                        await bucket.file(filepath).delete();
+                    }
+
+                    const blob = bucket.file(`users/${req.user_id}${Date.now()}`)
+
+                    const blobStream = blob.createWriteStream(
+                        {
+                            metadata: {
+                                contentType: req.file.mimetype
+                            }
+                        }
+                    )
 
                     blobStream.on("error", (err) => {
                         console.error("Upload error:", err);
@@ -55,19 +106,36 @@ async function update_user_details(req, res) {
                         photoUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`
                         if (name && address) {
                             await db.collection(process.env.userCollection).doc(req.user_id).update({ name: name, address: JSON.parse(address), photoUrl: photoUrl })
-                            return res.status(200).send("name address and profile pic updated")
+                            return res.status(200).send({
+                                message: "name address and profile pic updated",
+                                name: name,
+                                address: JSON.parse(address),
+                                photoUrl: photoUrl,
+                            })
                         }
                         else if (name) {
                             await db.collection(process.env.userCollection).doc(req.user_id).update({ name: name, photoUrl: photoUrl })
-                            return res.status(200).send("name and profile pic updated")
+                            return res.status(200).send({
+                                message: "name and profile pic updated",
+                                name: name,
+                                photoUrl: photoUrl,
+                            })
                         }
                         else if (address) {
                             await db.collection(process.env.userCollection).doc(req.user_id).update({ address: JSON.parse(address), photoUrl: photoUrl })
-                            return res.status(200).send(" address and profile pic updated")
+                            return res.status(200).send({
+                                message: "address and profile pic updated",
+                                address: JSON.parse(address),
+                                photoUrl: photoUrl,
+                            })
                         }
                         else {
+                            console.log("inside update doc", photoUrl)
                             await db.collection(process.env.userCollection).doc(req.user_id).update({ photoUrl: photoUrl })
-                            return res.status(200).send("profile pic updated")
+                            return res.status(200).send({
+                                message: "profile pic updated",
+                                photoUrl: photoUrl,
+                            })
                         }
                     })
 
@@ -78,24 +146,19 @@ async function update_user_details(req, res) {
                     req.file.buffer = null
                 }
             }
-            else if (name && address) {
-                await db.collection(process.env.userCollection).doc(req.user_id).update({ name: name, address: JSON.parse(address) })
+
+          
+            else if (name || alternative_phone || email || dob || gender) {
+                await db.collection(process.env.userCollection).doc(req.user_id).update(updates);
                 return res.status(200).send("name and address updated")
             }
-            else if (name) {
-                await db.collection(process.env.userCollection).doc(req.user_id).update({ name: name })
-                return res.status(200).send("name updated")
-            }
-            else if (address) {
-                await db.collection(process.env.userCollection).doc(req.user_id).update({ address: JSON.parse(address) })
-                return res.status(200).send("address updated")
-            }
+
             else {
                 res.status(400).send("Nothing to update")
             }
         }
         catch (err) {
-            console.log("error")
+            console.log("error", err)
         }
     }
     else {
@@ -113,7 +176,8 @@ async function update_user_details(req, res) {
         "name": "Sample Product",
         "price": 99.99,
         "image": "path/to/image.jpg",
-        "color": "blue"
+        "color": "blue",
+        "color_code":"#000000"
     }
     all fields must be provided
     *req.headers.authorization = JWT token
@@ -724,5 +788,6 @@ export {
     remove_item_from_wishlist,
     place_order,
     execute_cart,
-    submit_rating
+    submit_rating,
+    get_user_address_contact
 }

@@ -11,6 +11,7 @@ import banner_route from "./routes/banner_route.js"
 import user_route from "./routes/userRoute.js"
 import bodyParser from 'body-parser';
 import seller_route from './routes/sellerRoute.js' 
+import utilroute from "./routes/utilities.js"
 
 //configure env
 dotenv.config();
@@ -19,11 +20,7 @@ dotenv.config();
 const app = express();
 
 //middlewares
-app.use(cors({
-  origin: 'https://ecommerce-frontend-1-11jd.onrender.com/', // allow only this origin
-  methods: ['GET', 'POST'], // allow only these methods
-  allowedHeaders: ['Content-Type', 'Authorization'] // allow only these headers
-}));
+app.use(cors());
 app.use( bodyParser.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -34,6 +31,7 @@ app.use('/api/v1/product', product_routes);
 app.use('/api/v1/banner', banner_route)
 app.use('/api/v1/user', user_route)
 app.use('/api/v1/seller', seller_route)
+app.use('/api/v1/util', utilroute )
 
 //rest api
 app.get('/', (req, res) => {

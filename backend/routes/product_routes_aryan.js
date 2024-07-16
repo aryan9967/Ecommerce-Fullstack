@@ -1,17 +1,17 @@
 import express from "express"
-import { 
-    checkcache_allproduct, 
-    checkcache_for_product, 
+import {
+    checkcache_allproduct,
+    checkcache_for_product,
     checkcache_for_bestseller,
-    checkcache_for_toprated 
+    checkcache_for_toprated
 } from "../middleware/caching_middleware.js"
-import { 
-    get_all_product_paginate, 
-    get_product_by_pid, 
+import {
+    get_all_product_paginate,
+    get_product_by_pid,
     get_bestseller,
     get_toprated,
     get_short_description,
-    get_color_data,   
+    get_color_data,
     get_newly_arrived,
     search_by_keyword
 } from "../controllers/product_controller_user.js"
@@ -35,7 +35,7 @@ last_id => product id of the last product(doc) should be given for
                  *optional for first request
                  *must be provided for second request
 */
-router.get("/get_product",checkcache_allproduct, get_all_product_paginate)
+router.get("/get_product", checkcache_allproduct, get_all_product_paginate)
 
 //route for getting a particular product
 /*request url = http://localhost:8080/api/v1/product/get_product_pid?pid=<value>
@@ -66,7 +66,7 @@ router.get("/get_toprated", checkcache_for_toprated, get_toprated)
 method = GET
 * req.headers.authorization = JWT token
 */
-router.get("/get_short_description",requireSignIn, isUser, get_short_description) 
+router.get("/get_short_description", requireSignIn, isUser, get_short_description)
 
 //route for getting newly arrived product
 /*request url = http://localhost:8080/api/v1/product/newly_arrived

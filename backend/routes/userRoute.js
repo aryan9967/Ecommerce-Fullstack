@@ -10,7 +10,8 @@ import {
     remove_item_from_wishlist,
     place_order,
     execute_cart,
-    submit_rating
+    submit_rating,
+    get_user_address_contact
 } from "../controllers/userController.js"
 import { isUser, requireSignIn } from "../middleware/authMiddleware.js"
 import { check_single_stock_middleware } from "../middleware/check_stock_middleware.js"
@@ -32,6 +33,7 @@ const router = express.Router()
 */
 router.get("/get_user_details", requireSignIn, isUser, get_user_details)
 
+router.get("/get_user_address", requireSignIn, isUser, get_user_address_contact)
 
 //route to update user detaisl (profileimg, name, address )
 /* 

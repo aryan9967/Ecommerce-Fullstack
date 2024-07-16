@@ -1,0 +1,41 @@
+.dashboard_header {
+    width: 77vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_header .dashboard_header_content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vh;
+    padding: 0 0 0.8vh 0;
+    border-bottom: 1px solid var(--primary_container_border);
+}
+
+.dashboard_header .dashboard_header_content .dashboard_header_tag {
+    display: flex;
+}
+
+.dashboard_header .dashboard_header_content .dashboard_header_tag h3 {
+    font-size: 1.3rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text);
+    margin-bottom: 0 !important;
+}
+
+.dashboard_header .dashboard_header_content .account_name {
+    display: flex;
+}
+
+.dashboard_header .dashboard_header_content .account_name h4 {
+    font-size: 0.9rem;
+    font-family: "Roboto Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    margin-bottom: 0 !important;
+}

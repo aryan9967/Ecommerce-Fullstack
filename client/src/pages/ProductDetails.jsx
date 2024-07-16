@@ -20,6 +20,10 @@ const ProductDetails = () => {
     const [showMore, setShowMore] = useState(false);
     const [quantity, setQuantity] = useState(1);
     const navigate = useNavigate();
+    const [cartItems, setCartItems] = useState(() => {
+        const storedItems = localStorage.getItem('cartItems');
+        return storedItems ? JSON.parse(storedItems) : null;
+    });
     const [user, setUser] = useState(() => {
         const storedUser = localStorage.getItem('user');
         return storedUser ? JSON.parse(storedUser) : null;
@@ -35,10 +39,10 @@ const ProductDetails = () => {
             const data1 = await axios.get(
                 `${process.env.REACT_APP_API}/api/v1/product/get_color?pid=${pid}&color=${data.colors[0]}`
             );
-            console.log('get2: ', data1.data);
+            console.log('get2: ', data1?.data);
             if (data) {
                 setProductDetails(data);
-                setColors(data.color_code);
+                setColors(data?.color_code);
             }
             if (data1) {
                 setColorData(data1?.data);
@@ -64,8 +68,8 @@ const ProductDetails = () => {
             );
             console.log('get2:', data1.data);
             if (data1) {
-                setColorData(data1.data);
-                setImages(data1.data.images);
+                setColorData(data1?.data);
+                setImages(data1?.data?.images);
                 setMainImage(data1?.data?.images[0]);
                 setSizes(data1?.data?.sizes);
                 setSizeData(data1?.data?.sizes[0]);
@@ -80,6 +84,7 @@ const ProductDetails = () => {
         console.log('getSizeDetails');
         try {
             setSizeData(sizes[index]);
+            console.log(sizes[index]);
         } catch (error) {
             console.log(error);
             toast.error('Something went wrong while getting size details');
@@ -88,10 +93,22 @@ const ProductDetails = () => {
 
     const addToCart = async () => {
         try {
-            let pid = productDetails.pid;
-            let color = colorData.color_name;
+            let pid = productDetails?.pid;
+            let color = colorData?.color_name;
             let qauntity_str = "1";
-            let size = sizeData.size;
+            let size = sizeData?.size;
+            if (cartItems) {
+                for (const ci in cartItems) {
+                    if (pid === cartItems[ci].pid) {
+                        toast.error("Item already in cart");
+                        return
+                    }
+                }
+            }
+            if (sizeData?.stock < 1) {
+                toast.error("Item out of stock!");
+                return
+            }
             console.log(`${process.env.REACT_APP_API}/api/v1/user/update_cart`);
             const res = await axios.post(
                 `${process.env.REACT_APP_API}/api/v1/user/update_cart`,
@@ -100,6 +117,28 @@ const ProductDetails = () => {
             );
             console.log('success');
             navigate('/cart')
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const buyNow = async () => {
+        try {
+            localStorage.removeItem("item_info");
+            const orderItem = {
+                pid: productDetails?.pid,
+                product_name: productDetails?.product_name,
+                category: productDetails?.category,
+                color_name: colorData?.color_name,
+                color_code: colorData?.color_code,
+                color_pid: colorData?.color_pid,
+                image: colorData?.images[0],
+                size: sizeData?.size,
+                price: sizeData?.price,
+                quantity: sizeData?.stock,
+            }
+            localStorage.setItem("item_info", JSON.stringify(orderItem));
+            navigate('/placeorder')
         } catch (error) {
             console.log(error);
         }
@@ -126,7 +165,7 @@ const ProductDetails = () => {
     }, [productDetails]);
 
     useEffect(() => {
-        if (sizes && sizes.length > 0) {
+        if (sizes && sizes?.length > 0) {
             setSizeActive(sizes[0]?.size);
         }
     }, [sizes]); // Note the square brackets around `sizes`
@@ -163,7 +202,7 @@ const ProductDetails = () => {
 
     const setColorActive = (id) => {
         colors?.map(c => {
-            var sideColor = document.getElementById(c.color_code);
+            var sideColor = document.getElementById(c?.color_code);
             sideColor?.parentElement?.classList.remove("active");
         })
         var color = document.getElementById(id);
@@ -232,7 +271,7 @@ const ProductDetails = () => {
                                     {colors?.map((clr) => (
                                         <>
                                             <div className="color_container"
-                                                onClick={() => handleColorChange(clr.color_code, clr.color_name)}
+                                                onClick={() => handleColorChange(clr?.color_code, clr?.color_name)}
                                                 onLoad={() => setColorActive(productDetails?.color_code[0]?.color_code)}
                                                 key={clr.color_code}>
                                                 <div className="color active" id={clr.color_code} style={{ "backgroundColor": clr?.color_code }}></div>
@@ -249,9 +288,9 @@ const ProductDetails = () => {
                                     {sizes?.map((s, index) => (
                                         <>
                                             <div className="size_container"
-                                                onClick={() => handleSizeChange(s.size, index)}
+                                                onClick={() => handleSizeChange(s?.size, index)}
                                                 onLoad={() => setSizeActive(s?.size)}
-                                                key={s.size}>
+                                                key={s?.size}>
                                                 <h4 className="size active" id={s.size}>{s.size}</h4>
                                             </div>
                                         </>
@@ -259,7 +298,15 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                             <div className="product_avail">
-                                <h5>In stock</h5>
+                                {sizeData && sizeData?.stock > 0 ? (
+                                    <>
+                                        <h5>In stock</h5>
+                                    </>
+                                ) : (
+                                    <>
+                                        <h5>Not in stock</h5>
+                                    </>
+                                )}
                             </div>
                         </div>
                         <div className="product_about">
@@ -267,7 +314,7 @@ const ProductDetails = () => {
                                 <h3>About the product</h3>
                             </div>
                             <div className="about_content">
-                                {showMore ? productDetails?.description : `${productDetails?.description.substring(0, 164)}...`}
+                                {showMore ? productDetails?.description : `${productDetails?.description.substring(0, 274)}...`}
                                 <span
                                     className="see_more"
                                     onClick={() => setShowMore(!showMore)}
@@ -281,7 +328,7 @@ const ProductDetails = () => {
                         </div>
 
                         <button className="cart_btn" onClick={addToCart}>Add to Cart</button>
-                        <button className="buy_btn">Buy Now</button>
+                        <button className="buy_btn" onClick={buyNow}>Buy Now</button>
                     </div>
                 </div>
                 <div className="related_products"></div>

@@ -91,12 +91,12 @@ const NewlyArrived = () => {
                 {newlyArrived?.map((na) => (
                     <>
                         <SwiperSlide>
-                            <div className="card" onClick={() => toProductDetails(na.pid)}>
+                            <div className="card" onClick={() => toProductDetails(na?.pid)}>
                                 <div className="crdimg">
-                                    <img src={na.main_image} alt="" />
+                                    <img src={na?.main_image} alt="" />
                                 </div>
                                 <div className="crd_content">
-                                    <h3 className="crd_name">{na.product_name}</h3>
+                                    <h3 className="crd_name">{na?.product_name}</h3>
                                     <div className="crd_rating">
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                         <FontAwesomeIcon className="star" icon={faStar} />
@@ -104,7 +104,7 @@ const NewlyArrived = () => {
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                     </div>
-                                    <p className="crd_price">₹{na.display_price}</p>
+                                    <p className="crd_price">₹{na?.display_price}.00</p>
                                 </div>
                             </div>
                         </SwiperSlide>

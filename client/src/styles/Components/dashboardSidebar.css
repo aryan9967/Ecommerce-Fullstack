@@ -1,11 +1,11 @@
 .dashboard_container .dashboard_sidebar {
-    width: 20vw;
-    height: 100vh;
-    border-top: 1px solid rgb(235, 214, 250);
-    border-right: 1px solid rgb(235, 214, 250);
+    width: 15vw;
+    height: 60vh;
+    border: none;
     overflow-y: auto;
     overflow-x: hidden;
     position: sticky;
+    padding: 1.5vh 0 0 0;
     top: 0;
     /* Stick to the top of the viewport */
 
@@ -17,45 +17,79 @@
 }
 
 .dashboard_container .dashboard_sidebar .sidebar_content {
-    width: 20vw;
+    width: 15vw;
     display: flex;
     flex-direction: column;
+    gap: 1.5vh;
 }
 
 .dashboard_container .dashboard_sidebar .sidebar_btn {
-    width: 20vw;
+    width: 15vw;
     display: flex;
-    border: 1px solid rgb(235, 214, 250);
-    border-top: none;
-    border-right: none;
+    flex-direction: column;
+    gap: 1.5vh;
+    padding: 0 0 1.5vh 0;
+    border-bottom: 1px solid var(--primary_container_border);
     /* align-items: center;
     justify-content: center; */
 }
 
+.dashboard_container .dashboard_sidebar .sidebar_btn:last-child {
+    width: 15vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+    padding: 0 0 1.5vh 0;
+    border-bottom: none !important;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_btn .sidebar_tag {
+    display: flex;
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_btn .sidebar_tag h3 {
+    font-size: 0.8rem;
+    font-family: "Noto Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text);
+    letter-spacing: 0.1vh;
+    text-transform: capitalize;
+    opacity: 0.8;
+    margin-bottom: 0 !important;
+}
+
+
 .dashboard_container .dashboard_sidebar .sidebar_text {
     width: 20vw;
-    height: 9vh;
     display: flex;
-    align-items: center;
-    padding: 0 1vw;
-    background-color: #faf7ff;
+    background-color: transparent !important;
     border: none;
     outline: none;
     cursor: pointer;
 }
 
 .dashboard_container .dashboard_sidebar .sidebar_text:hover {
-    background-color: #f7f1ff;
+    background-color: transparent;
 }
 
 .dashboard_container .dashboard_sidebar .sidebar_text h4 {
-    font-size: 0.9rem;
-    font-family: "Roboto Mono", monospace;
+    font-size: 0.85rem;
+    font-family: "Noto Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: 300;
+    font-weight: 400;
     font-style: normal;
-    color: #9b44de;
+    color: var(--text);
     letter-spacing: 0.1vh;
-    text-transform: uppercase;
+    text-transform: capitalize;
     margin-bottom: 0 !important;
+    cursor: pointer;
+}
+
+.dashboard_container .dashboard_sidebar .sidebar_text h4:hover {
+    font-size: 0.88rem;
+    color: var(--text_extra_dark);
 }

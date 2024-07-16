@@ -8,16 +8,26 @@ import toast from 'react-hot-toast';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { faPhone, faBagShopping } from "@fortawesome/free-solid-svg-icons";
-import l1 from '../../images/login3c.jpg'
+import l1 from '../../images/login3d.jpg'
 import '../../styles/loginUser.css';
 
 const LoginUser = () => {
     var phone, otp, userVerify, uid;
     const [btnText, setBtnText] = useState('Get OTP');
-    const [user, setUser] = useAuth();
     const [error, setError] = useState("");
     const [retryCount, setRetryCount] = useState(0);
     const maxRetries = 3;
+    const [isRegistered, setIsRegistered] = useState(false);
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setIsRegistered(true);
+            return JSON.parse(storedUser);
+        } else {
+            setIsRegistered(false);
+            return null;
+        }
+    });
     const navigate = useNavigate();
 
 
@@ -51,6 +61,12 @@ const LoginUser = () => {
             var otpInput = document.getElementById('otp');
             var phoneInput = document.getElementById("phone");
             phone = phoneInput.value;
+            if (!/^[0-9]{10}$/.test(phone)) {
+                setError('Please enter a valid 10-digit phone number.');
+                console.log(phone);
+                toast.error("Something went wrong!");
+                return;
+            }
             var phoneNumber = '+91' + phone;
             const recaptcha = recaptchaRef.current;
             const confirmation = await signInWithPhoneNumber(auth, phoneNumber, recaptcha);
@@ -86,6 +102,11 @@ const LoginUser = () => {
             var phoneInput = document.getElementById("phone");
             var otpInput = document.getElementById("otp");
             otp = otpInput.value;
+            if (!/^[0-9]{6}$/.test(otp)) {
+                setError('Please enter a valid 6-digit OTP.');
+                toast.error("Something went wrong!");
+                return;
+            }
             const data = await userVerify.confirm(otp);
             data.uid = data.user.uid;
             uid = data.uid;
@@ -97,7 +118,6 @@ const LoginUser = () => {
                 { uid }
             );
             if (res && res.data.success) {
-                toast.success(res.data.message, { duration: 3000 });
                 setUser({
                     ...user,
                     user: res.data.user,
@@ -112,10 +132,20 @@ const LoginUser = () => {
             setBtnText('Get OTP');
             setOnClickHandler(() => sendOtp);
             navigate('/');
+            document.cookie = 'popup=User Logged Successfully-success';
         } catch (error) {
             console.log(error);
         }
     }
+
+    useEffect(() => {
+        if (isRegistered) {
+            navigate('/');
+        }
+        return () => {
+            console.log('Cleanup on component unmount after getting cart items');
+        };
+    }, []);
 
     const toRegis = () => {
         navigate('/register-user');
@@ -145,6 +175,7 @@ const LoginUser = () => {
                                     id='phone'
                                     type="tel"
                                     pattern='[0-9]{10}'
+                                    maxLength='10'
                                     placeholder='' />
                             </div>
                             <div id='recaptcha'></div>
@@ -154,6 +185,7 @@ const LoginUser = () => {
                                     id='otp'
                                     type="text"
                                     pattern='[0-9]{6}'
+                                    maxLength='6'
                                     placeholder='' />
                             </div>
                             <button className='log_btn' onClick={onClickHandler}>
@@ -162,7 +194,7 @@ const LoginUser = () => {
                         </form>
                         <div className="divider-container">
                             <div className="line"></div>
-                            <span className="divider-text">New to Moulik?</span>
+                            <span className="divider-text">New to DesignT?</span>
                             <div className="line"></div>
                         </div>
                         <div className='signin_phone'>
@@ -171,7 +203,7 @@ const LoginUser = () => {
                                 <FontAwesomeIcon className='phone_icon' icon={faPhone} />
                             </button>
                         </div>
-                        <div className="divider-container">
+                        {/* <div className="divider-container">
                             <div className="sellerline"></div>
                             <span className="divider-text">Selling for work?</span>
                             <div className="sellerline"></div>
@@ -181,7 +213,7 @@ const LoginUser = () => {
                             <button className="seller_icon_btn" onClick={toSeller}>
                                 <FontAwesomeIcon className='seller_icon' icon={faBagShopping} />
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

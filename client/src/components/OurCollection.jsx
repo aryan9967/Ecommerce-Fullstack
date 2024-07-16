@@ -98,12 +98,12 @@ const OurCollection = () => {
                 {ourCollection?.map((oc) => (
                     <>
                         <SwiperSlide>
-                            <div className="card" onClick={() => toProductDetails(oc.pid)}>
+                            <div className="card" onClick={() => toProductDetails(oc?.pid)}>
                                 <div className="crdimg">
-                                    <img src={oc.main_image} alt="" />
+                                    <img src={oc?.main_image} alt="" />
                                 </div>
                                 <div className="crd_content">
-                                    <h3 className="crd_name">{oc.product_name}</h3>
+                                    <h3 className="crd_name">{oc?.product_name}</h3>
                                     <div className="crd_rating">
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                         <FontAwesomeIcon className="star" icon={faStar} />
@@ -111,7 +111,7 @@ const OurCollection = () => {
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                         <FontAwesomeIcon className="star" icon={faStar} />
                                     </div>
-                                    <p className="crd_price">₹{oc.display_price}</p>
+                                    <p className="crd_price">₹{oc?.display_price}.00</p>
                                 </div>
                             </div>
                         </SwiperSlide>

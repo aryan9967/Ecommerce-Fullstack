@@ -1,0 +1,23 @@
+.gender-radio-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 1vw;
+    width: 100%;
+}
+
+.gender-radio-label {
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    padding-left: 5px;
+}
+
+.gender-radio-input {
+    margin-right: 5px;
+    accent-color: #555; /* Modern browsers */
+}
+
+.gender-radio-label input:checked {
+    border-color: #555;
+}

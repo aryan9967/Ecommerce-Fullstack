@@ -1,14 +1,4 @@
-.dashboard_container {
-    width: 100vw;
-    display: flex;
-    /* overflow-x: hidden; */
-}
 
-.dashboard_container .dashboard_content {
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-}
 
 .dashboard_container .dashboard_content .create_product {
     margin-left: 3vw;

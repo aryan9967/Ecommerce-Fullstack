@@ -7,7 +7,7 @@ import { faAngleUp, faAngleDown, faStar, faMinus, faPlus } from "@fortawesome/fr
 import p1 from '../images/cloth2.jpg'
 import '../styles/cart.css'
 import debounce from 'lodash/debounce';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -24,23 +24,32 @@ const Cart = () => {
         const storedPrice = localStorage.getItem('price');
         return storedPrice ? JSON.parse(storedPrice) : null;
     });
+    const [isRegistered, setIsRegistered] = useState(false);
     const [user, setUser] = useState(() => {
         const storedUser = localStorage.getItem('user');
-        return storedUser ? JSON.parse(storedUser) : null;
+        if (storedUser) {
+            setIsRegistered(true);
+            return JSON.parse(storedUser);
+        } else {
+            setIsRegistered(false);
+            return null;
+        }
     });
+
+    const navigate = useNavigate();
 
     const getCartItems = async () => {
         try {
             console.log(user);
             const { data } = await axios.get(
-                `${process.env.REACT_APP_API}/api/v1/user/fetch_cart?`,
+                `${process.env.REACT_APP_API}/api/v1/user/fetch_cart`,
                 { headers: { "Authorization": user.token } }
             );
             console.log('get1:', data);
             setCartItems(data);
-            const quantity_arr = data.map((d) => d.qauntity);
+            const quantity_arr = data.map((d) => d?.qauntity);
             setQuantity(quantity_arr);
-            const price_arr = data.map((d) => d.price);
+            const price_arr = data.map((d) => d?.price);
             setPrice(price_arr);
             localStorage.setItem('cartItems', JSON.stringify(data));
             localStorage.setItem('quantity', JSON.stringify(quantity_arr));
@@ -73,7 +82,7 @@ const Cart = () => {
             const res = await axios.post(
                 `${process.env.REACT_APP_API}/api/v1/user/remove_item_from_cart`,
                 { pid, color, size },
-                { headers: { "Authorization": user.token } }
+                { headers: { "Authorization": user?.token } }
             );
             console.log('success');
             getCartItems();
@@ -88,11 +97,20 @@ const Cart = () => {
             console.log(updatedQuantities);
             if (updatedQuantities[index] !== undefined) {
                 let qauntity_str = updatedQuantities[index].toString();
-                addToCart(ci.pid, ci.color, qauntity_str, ci.size);
+                addToCart(ci?.pid, ci?.color, qauntity_str, ci?.size);
             }
         }, 1000), // 1000ms debounce delay
         []
     );
+
+    useEffect(() => {
+        if (!isRegistered) {
+            navigate('/');
+        }
+        return () => {
+            console.log('Cleanup on component unmount after getting cart items');
+        };
+    }, []);
 
     useEffect(() => {
         // getAllCategories();
@@ -138,7 +156,7 @@ const Cart = () => {
             setQuantity(remainingQuantities);
             localStorage.setItem('quantity', JSON.stringify(remainingQuantities));
             console.log(remainingQuantities);
-            removeItemFromCart(ci.pid, ci.color, ci.size);
+            removeItemFromCart(ci?.pid, ci?.color, ci?.size);
         }
     };
 
@@ -173,7 +191,7 @@ const Cart = () => {
                                             <h3>{ci?.name}</h3>
                                         </div>
                                         <div className="cart_avail">
-                                            {ci.in_stock ? (
+                                            {ci?.in_stock ? (
                                                 <>
                                                     <h5>In stock</h5>
                                                 </>
@@ -191,13 +209,13 @@ const Cart = () => {
                                             <FontAwesomeIcon className="star" icon={faStar} />
                                         </div>
                                         <div className="product_color">
-                                            <h4>Color: <span className="color-highlight">{ci.color}</span></h4>
+                                            <h4>Color: <span className="color-highlight">{ci?.color}</span></h4>
                                         </div>
                                         <div className="product_size">
-                                            <h4>Size: <span className="size-highlight">{ci.size}</span></h4>
+                                            <h4>Size: <span className="size-highlight">{ci?.size}</span></h4>
                                         </div>
                                         <div className="product_category">
-                                            <h4>Category: <span className="category-highlight">{ci.category}</span></h4>
+                                            <h4>Category: <span className="category-highlight">{ci?.category}</span></h4>
                                         </div>
                                         <div className="cart_quantity">
                                             <div className="quantity_control">
@@ -216,7 +234,7 @@ const Cart = () => {
                                                     <FontAwesomeIcon icon={faPlus} />
                                                 </button>
                                                 <div className="vertical-divider"></div>
-                                                <Link className="remove_text" onClick={() => removeItemFromCart(ci.pid, ci.color, ci.size)}>
+                                                <Link className="remove_text" onClick={() => removeItemFromCart(ci?.pid, ci?.color, ci?.size)}>
                                                     Remove
                                                 </Link>
                                                 <div className="vertical-divider"></div>
@@ -235,28 +253,30 @@ const Cart = () => {
                     </div>
                 </div>
                 <div className="cart_right">
-                    <div className="price_header">
-                        <h3>Price Details</h3>
-                    </div>
-                    <div className="price_details">
-                        <div className="price_detail">
-                            <h4>Price ({cartItems.length} items): </h4>
-                            <h4 className="price_highlight">₹{price.reduce((partialSum, a) => partialSum + a, 0)}.00</h4>
+                    <div className="price_details_container">
+                        <div className="price_header">
+                            <h3>Price Details</h3>
                         </div>
-                        {/* <div className="price_detail">
+                        <div className="price_details">
+                            <div className="price_detail">
+                                <h4>Price ({cartItems?.length} items): </h4>
+                                <h4 className="price_highlight">₹{price?.reduce((partialSum, a) => partialSum + a, 0)}.00</h4>
+                            </div>
+                            {/* <div className="price_detail">
                             <h4>Discount: </h4>
                             <h4 className="price_highlight">-₹200</h4>
                         </div> */}
-                        <div className="price_detail">
-                            <h4>Delivery Charges: </h4>
-                            <h4 className="price_highlight">₹33.00</h4>
-                        </div>
-                        <div className="price_total">
-                            <h4>Total Amount: </h4>
-                            <h4 className="total_highlight">₹{price.reduce((partialSum, a) => partialSum + a, 0) + 33}.00</h4>
-                        </div>
-                        <div className="price_buy_div">
-                            <button className="price_buy">Buy Now</button>
+                            <div className="price_detail">
+                                <h4>Delivery Charges: </h4>
+                                <h4 className="price_highlight">₹33.00</h4>
+                            </div>
+                            <div className="price_total">
+                                <h4>Total Amount: </h4>
+                                <h4 className="total_highlight">₹{price?.reduce((partialSum, a) => partialSum + a, 0) + 33}.00</h4>
+                            </div>
+                            <div className="price_buy_div">
+                                <button className="price_buy">Buy Now</button>
+                            </div>
                         </div>
                     </div>
                     <div className="might_like">

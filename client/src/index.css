@@ -1,5 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
 
+:root {
+  --primary: #7e57c2;
+  --primary_light: #e4d8f9;
+  --primary_light_bold: #ddcdfa;
+  --primary_light_extra_bold: #d4c0f9;
+  --primary_light_dark: #b8a0e4;
+  --primary_light_extra_dark: #af95de;
+  --primary_border: #dccbf7;
+  --secondary: #673ab7;
+  --secondary_dark: #512a95;
+  --secondary_text: #e9daff;
+  --tertiary: #5d4037;
+  --primary_container: #eceff1;
+  --primary_container_border: #90a4ae;
+  --primary_container_border_extra_thin: #f8fdfe;
+  --primary_container_border_extra_light: #f8fdff;
+  --primary_container_border_light: #f2fafd;
+  --primary_container_border_bold_light: #ddeff6;
+  --primary_container_border_dark: #76868e;
+  --primary_container_border_extra_dark: #5c686e;
+  --accent_light: #b79afb;
+  --accent: #a078ff;
+  --accent_dark: #8b62eb;
+  --accent_extra_dark: #8158e2;
+  --accent_hover: #8660e1;
+  --accent_hover_light: #956fed;
+  --pink_accent: #ff4081;
+  --pink_accent_border: #d2376a;
+  --blue_accent: #448aff;
+  --blue_accent_border: #3569c5;
+  --input_background: #9575cd;
+  --input_background_hover: #9d7cd6;
+  --surface: #fff;
+  --text: #455a64;
+  --text_dark: #37484f;
+  --text_extra_dark: #28353a;
+  --success: #01a301;
+  --success_hover: #009500;
+  --side: #fdd835;
+  --side1: #e65100;
+  --side2: #00c853;
+  --error: #c62828;
+  --link: #007bff;
+  --link_hover: #0056b3;
+  --bgcolor: #fbf8ff;
+  --bgcolor_light: #f1e7ff;
+  --bgcolor_extra_light: #f7efff;
+  --bgcolor_extra_thin: #f9f4ff;
+  --bgcolor_light_bold: #f1e7ff;
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -4,7 +4,7 @@
     --input-text-hover-color: transparent;
     --input-border-color: rgb(188, 135, 231);
     --input-border-hover-color: rgb(199, 150, 240);
-    --input-bg-color: rgba(171, 79, 247, 1);
+    --input-bg-color: #9575cd;
     --icon-bg-color: rgba(171, 79, 247, 1);
     --search-max-width: 45vw;
     --search-min-width: 35vw;
@@ -97,10 +97,34 @@
 }
 
 .search_bar .search-box .btn-icon-content:hover {
-    background: rgb(177, 86, 252);
+    background: var(--input_background_hover);
 }
 
 .search_bar .search-box .srch_icon {
     font-size: 1.1rem;
     color: rgb(228, 200, 250);
+}
+
+@media (max-width:800px) {
+    .search_bar{
+        width: 45vw;
+    }
+}
+
+@media (max-width:700px) {
+    .srch_inp {
+        width: calc(100% - 6vw) !important;
+    }
+    .search-box-icon{
+        width: 6vw !important;
+    }
+    .btn-icon-content{
+        width: 100% !important;
+    }
+}
+
+@media (max-width:600px) {
+    .search_bar{
+        display: none;
+    }
 }

@@ -1,0 +1,36 @@
+.addressline{
+    display: flex;
+    justify-content: space-between;
+}
+.delivery_details{
+    border: 1px solid var(--primary_container_border);
+    border-radius: 10px;
+    
+}
+.contact-header{
+    display: flex;
+    align-items: center;
+}
+
+.contact-header h3{
+    margin-bottom: 0 !important;
+    font-size: 1.3rem;
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    color: var(--text);
+}
+.contact_form{
+    padding: 15px;
+}
+.line-field{
+    width: 48% !important;
+}
+.contact-header{
+    width: 28vw;
+    height: 8vh;
+    display: flex;
+    align-items: center;
+    padding: 0 1vw;
+    border-bottom: 1px solid var(--primary_container_border);
+}
